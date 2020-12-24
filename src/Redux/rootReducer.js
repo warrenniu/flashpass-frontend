@@ -3,15 +3,12 @@ import {combineReducers} from 'redux'
 const defaultState = {
 	users: [],
 	decks: [],
-	cards: [],
 	currentUserId: 1
 }
 
 function usersReducer(prevState = defaultState.users, action) {
 	switch (action.type) {
 		case "GET_USERS" :
-			console.log(action)
-			console.log(prevState)
 			return action.payload
 		default :
 			return prevState
@@ -24,6 +21,10 @@ function decksReducer(prevState = defaultState.decks, action) {
 			return action.payload
 		case "POST_DECK" :
 			return [...prevState, action.payload]
+		case "POST_CARD" :
+			const currentDeck = prevState.find(deck => deck.id === action.payload.deck_id)
+			currentDeck.cards = [...currentDeck.cards, action.payload]
+			return [...prevState]
 		default :
 			return prevState
 	}
@@ -38,6 +39,8 @@ function currentUserIdReducer(prevState = defaultState.currentUserId, action) {
 			return prevState 
 	}
 }
+
+
 
 const rootReducer = combineReducers({
 	users: usersReducer,
