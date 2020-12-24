@@ -15,7 +15,7 @@ function DeckComponent(props) {
 			<p>{props.deckObj.subject}</p>
 			<p>{props.deckObj.completed ? "Completed" : "Not Completed"}</p>
 			<p>{props.deckObj.count}</p>
-			<CreateCardComponent deckId={props.deckObj.id} />
+			<CreateCardComponent currentDeckId={props.deckObj.id} />
 			{arrayOfCards()}
 		</div>
 	)
