@@ -20,18 +20,25 @@ function usersReducer(prevState = defaultState.users, action) {
 function decksReducer(prevState = defaultState.decks, action) {
 	switch (action.type) {
 		case "GET_DECKS" :
-			console.log(action)
-			console.log(prevState)
 			return action.payload
 		default :
 			return prevState
 	}
 }
 
+function currentUserIdReducer(prevState = defaultState.currentUserId, action) {
+	switch (action.type) {
+		case "GET_CURRENTUSERID":
+			return prevState 
+		default: 
+			return prevState 
+	}
+}
+
 const rootReducer = combineReducers({
 	users: usersReducer,
 	decks: decksReducer,
-	// currentUserId: currentUserIdReducer
+	currentUserId: currentUserIdReducer
 })
 
 export default rootReducer
