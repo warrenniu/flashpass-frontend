@@ -1,9 +1,13 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-function CreateCardComponent() {
-	return (
-		<h1>Create Card Component</h1>
-	)
+class CreateCardComponent extends React.Component {
+
+	render() {
+		return (
+			<h1>Create Card Component</h1>
+		)
+	}
 }
 
 export default CreateCardComponent

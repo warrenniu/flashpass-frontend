@@ -3,6 +3,7 @@ import {combineReducers} from 'redux'
 const defaultState = {
 	users: [],
 	decks: [],
+	cards: [],
 	currentUserId: 1
 }
 
@@ -28,6 +29,7 @@ function decksReducer(prevState = defaultState.decks, action) {
 	}
 }
 
+
 function currentUserIdReducer(prevState = defaultState.currentUserId, action) {
 	switch (action.type) {
 		case "GET_CURRENTUSERID":
@@ -40,6 +42,7 @@ function currentUserIdReducer(prevState = defaultState.currentUserId, action) {
 const rootReducer = combineReducers({
 	users: usersReducer,
 	decks: decksReducer,
+	// cards: cardsReducer,
 	currentUserId: currentUserIdReducer
 })
 
