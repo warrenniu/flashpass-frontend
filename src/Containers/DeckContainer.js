@@ -11,9 +11,7 @@ class DeckContainer extends React.Component {
 	}
 
 	arrayOfDecks = () => {
-		console.log(this.props.decks)
 		const userDecksArray = this.props.decks.filter(deckEl => deckEl.user_id === this.props.currentUserId)
-		console.log(userDecksArray)
 		return userDecksArray.map(deckEl => <DeckComponent key={deckEl.id} deckObj={deckEl} />)
 	}
 

@@ -21,6 +21,8 @@ function decksReducer(prevState = defaultState.decks, action) {
 	switch (action.type) {
 		case "GET_DECKS" :
 			return action.payload
+		case "POST_DECK" :
+			return [...prevState, action.payload]
 		default :
 			return prevState
 	}
@@ -29,7 +31,7 @@ function decksReducer(prevState = defaultState.decks, action) {
 function currentUserIdReducer(prevState = defaultState.currentUserId, action) {
 	switch (action.type) {
 		case "GET_CURRENTUSERID":
-			return prevState 
+			return prevState
 		default: 
 			return prevState 
 	}
