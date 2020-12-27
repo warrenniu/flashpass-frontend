@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import {postDeck} from '../Redux/actions'
 
 class CreateDeckComponent extends React.Component {

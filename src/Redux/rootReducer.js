@@ -23,13 +23,17 @@ function decksReducer(prevState = defaultState.decks, action) {
 			return [...prevState, action.payload]
 		case "DELETE_DECK" :
 			return [...prevState.filter(deck => deck.id !== action.payload)]
+		case "PATCH_DECK_COMPLETED" :
+			const deckToComplete = prevState.find(deck => deck.id === action.payload.id)
+			deckToComplete.completed = action.payload.completed
+			return [...prevState]
 		case "POST_CARD" :
-			const currentDeck = prevState.find(deck => deck.id === action.payload.deck_id)
-			currentDeck.cards = [...currentDeck.cards, action.payload]
+			const deckToAddCard = prevState.find(deck => deck.id === action.payload.deck_id)
+			deckToAddCard.cards = [...deckToAddCard.cards, action.payload]
 			return [...prevState]
 		case "DELETE_CARD" :
-			const currentDeckTwo = prevState.find(deck => deck.id === action.payload.deck_id)
-			currentDeckTwo.cards = [...currentDeckTwo.cards.filter(card => card.id !== action.payload.id)]
+			const deckToDeleteCard = prevState.find(deck => deck.id === action.payload.deck_id)
+			deckToDeleteCard.cards = [...deckToDeleteCard.cards.filter(card => card.id !== action.payload.id)]
 			return [...prevState]
 		default :
 			return prevState
