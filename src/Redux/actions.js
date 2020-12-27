@@ -1,4 +1,4 @@
-import { GET_USERS, GET_DECKS, POST_DECK, POST_CARD, DELETE_DECK } from './actionTypes';
+import { GET_USERS, GET_DECKS, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD } from './actionTypes';
 
 const BASE_URL = "http://localhost:4000"
 
@@ -62,6 +62,18 @@ export function postCard(newCardObj) {
 			.then(response => response.json())
 			.then(cardObj => {
 				dispatch({ type: POST_CARD, payload: cardObj })
+			})
+	}
+}
+
+export function deleteCard(cardObj) {
+	return function (dispatch) {
+		fetch(`${BASE_URL}/api/v1/cards/${cardObj.id}`, {
+			method: 'DELETE',
+		})
+			.then(response => response.json())
+			.then(data => {
+				dispatch({ type: DELETE_CARD, payload: cardObj })
 			})
 	}
 }
