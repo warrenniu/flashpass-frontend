@@ -21,6 +21,8 @@ function decksReducer(prevState = defaultState.decks, action) {
 			return action.payload
 		case "POST_DECK" :
 			return [...prevState, action.payload]
+		case "DELETE_DECK" :
+			return [...prevState.filter(deck => deck.id !== action.payload)]
 		case "POST_CARD" :
 			const currentDeck = prevState.find(deck => deck.id === action.payload.deck_id)
 			currentDeck.cards = [...currentDeck.cards, action.payload]
@@ -29,7 +31,6 @@ function decksReducer(prevState = defaultState.decks, action) {
 			return prevState
 	}
 }
-
 
 function currentUserIdReducer(prevState = defaultState.currentUserId, action) {
 	switch (action.type) {
@@ -40,12 +41,9 @@ function currentUserIdReducer(prevState = defaultState.currentUserId, action) {
 	}
 }
 
-
-
 const rootReducer = combineReducers({
 	users: usersReducer,
 	decks: decksReducer,
-	// cards: cardsReducer,
 	currentUserId: currentUserIdReducer
 })
 

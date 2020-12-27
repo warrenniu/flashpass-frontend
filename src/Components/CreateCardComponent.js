@@ -36,7 +36,6 @@ class CreateCardComponent extends React.Component {
 	}
 }
 
-
 function mdp(dispatch) {
 	return {
 		postCard: newCardObj => dispatch(postCard(newCardObj))
