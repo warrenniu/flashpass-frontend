@@ -1,4 +1,5 @@
 import React from 'react'
+import {Route, Switch} from 'react-router-dom'
 import CardComponent from './CardComponent'
 import CreateCardComponent from './CreateCardComponent'
 import DeleteDeckComponent from './DeleteDeckComponent'
@@ -11,8 +12,6 @@ function DeckComponent(props) {
 		return props.deckObj.cards.map(cardEl => <CardComponent key={cardEl.id} cardObj={cardEl} />)
 	}
 
-
-
 	return (
 		<div>
 			<h1>Deck Component</h1>
@@ -20,9 +19,14 @@ function DeckComponent(props) {
 			<p>{props.deckObj.subject}</p>
 			<p>{props.deckObj.completed ? "Completed" : "Not Completed"}</p>
 			<p>Card Count: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</p>
-			<ToggleCompletedComponent currentDeck={props.deckObj} />
-			<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
-			<CreateCardComponent currentDeckId={props.deckObj.id} />
+			{/* <Switch> */}
+				{/* <Route path="/decks/:id/cards/:id" render={routerProps => {
+					// const cardId = parseInt(routerProps.match.params.id)
+				}} /> */}
+				<ToggleCompletedComponent currentDeck={props.deckObj} />
+				<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
+				<CreateCardComponent currentDeckId={props.deckObj.id} />
+			{/* </Switch> */}
 			{arrayOfCards()}
 		</div>
 	)

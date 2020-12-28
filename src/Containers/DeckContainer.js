@@ -1,6 +1,7 @@
 import React from 'react'
 import DeckComponent from '../Components/DeckComponent'
 import CreateDeckComponent from '../Components/CreateDeckComponent'
+import {Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getDecks} from '../Redux/actions'
 
@@ -19,8 +20,15 @@ class DeckContainer extends React.Component {
 		return (
 			<div>
 				<h1>Deck Container</h1>
-				<CreateDeckComponent />
-				{this.props.decks.length === 0 ? <p>Loading...</p> : this.arrayOfDecks()}
+				<Switch>
+					<Route path="/decks/create" component={CreateDeckComponent} />
+					<Route path="/decks/:id" render={routerProps => {
+						const deckId = parseInt(routerProps.match.params.id)
+						const foundDeck = this.props.decks.find(deckEl => deckEl.id === deckId)
+						return foundDeck ? <DeckComponent deckObj={foundDeck} /> : <h3>Loading...</h3>
+					}} />
+					<Route path="/decks" render={() => this.props.decks.length === 0 ? <p>Loading...</p> : this.arrayOfDecks()} />
+				</Switch>
 			</div>
 		)
 	}
