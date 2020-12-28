@@ -19,15 +19,17 @@ function DeckComponent(props) {
 			<p>{props.deckObj.subject}</p>
 			<p>{props.deckObj.completed ? "Completed" : "Not Completed"}</p>
 			<p>Card Count: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</p>
-			{/* <Switch> */}
-				{/* <Route path="/decks/:id/cards/:id" render={routerProps => {
-					// const cardId = parseInt(routerProps.match.params.id)
-				}} /> */}
-				<ToggleCompletedComponent currentDeck={props.deckObj} />
-				<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
-				<CreateCardComponent currentDeckId={props.deckObj.id} />
-			{/* </Switch> */}
-			{arrayOfCards()}
+			<ToggleCompletedComponent currentDeck={props.deckObj} />
+			<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
+			<CreateCardComponent currentDeckId={props.deckObj.id} />
+			<Switch>
+				<Route path="/decks/:id/cards/:id" render={routerProps => {
+					const cardId = parseInt(routerProps.match.params.id)
+					const foundCard = props.deckObj.cards.find(cardEl => cardEl.id === cardId)
+					return foundCard ? <CardComponent cardObj={foundCard} /> : <h3>Loading...</h3>
+				}} />
+				<Route exact path="/decks/:id/cards" render={() => arrayOfCards()} />
+			</Switch>
 		</div>
 	)
 }

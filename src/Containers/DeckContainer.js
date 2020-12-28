@@ -19,13 +19,20 @@ class DeckContainer extends React.Component {
 	render () {
 		return (
 			<div>
-				<h1>Deck Container</h1>
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />
 					<Route path="/decks/:id" render={routerProps => {
 						const deckId = parseInt(routerProps.match.params.id)
 						const foundDeck = this.props.decks.find(deckEl => deckEl.id === deckId)
-						return foundDeck ? <DeckComponent deckObj={foundDeck} /> : <h3>Loading...</h3>
+						return foundDeck ? 
+							(
+							<>
+								<h1>Deck Container</h1>
+								<DeckComponent deckObj={foundDeck} />
+							</>
+							)
+							: 
+							<h3>Loading...</h3>
 					}} />
 					<Route path="/decks" render={() => this.props.decks.length === 0 ? <p>Loading...</p> : this.arrayOfDecks()} />
 				</Switch>
