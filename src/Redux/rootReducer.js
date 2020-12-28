@@ -35,6 +35,11 @@ function decksReducer(prevState = defaultState.decks, action) {
 			const deckToDeleteCard = prevState.find(deck => deck.id === action.payload.deck_id)
 			deckToDeleteCard.cards = [...deckToDeleteCard.cards.filter(card => card.id !== action.payload.id)]
 			return [...prevState]
+		case "PATCH_CARD" :
+			const deckToPatchCard = prevState.find(deck => deck.id === action.payload.deck_id)
+			deckToPatchCard.cards = [...deckToPatchCard.cards.filter(card => card.id !== action.payload.id)]
+			deckToPatchCard.cards = [...deckToPatchCard.cards, action.payload]
+			return [...prevState]
 		default :
 			return prevState
 	}

@@ -9,7 +9,7 @@ function CardComponent(props) {
 			<p>{props.cardObj.question}</p>
 			<p>{props.cardObj.answer}</p>
 			<DeleteCardComponent currentCard={props.cardObj} />
-			<EditCardComponent />
+			<EditCardComponent currentCard={props.cardObj} />
 		</div>
 	)
 }

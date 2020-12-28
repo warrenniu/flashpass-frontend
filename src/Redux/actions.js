@@ -1,4 +1,4 @@
-import { GET_USERS, GET_DECKS, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD, PATCH_DECK_COMPLETED } from './actionTypes';
+import { GET_USERS, GET_DECKS, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD, PATCH_DECK_COMPLETED, PATCH_CARD } from './actionTypes';
 
 const BASE_URL = "http://localhost:4000"
 
@@ -90,6 +90,22 @@ export function deleteCard(cardObj) {
 			.then(response => response.json())
 			.then(data => {
 				dispatch({ type: DELETE_CARD, payload: cardObj })
+			})
+	}
+}
+
+export function patchCard(updatedCardObj) {
+	return function (dispatch) {
+		fetch(`${BASE_URL}/api/v1/cards/${updatedCardObj.id}`, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(updatedCardObj),
+		})
+			.then(response => response.json())
+			.then(cardObj => {
+				dispatch({ type: PATCH_CARD, payload: cardObj })
 			})
 	}
 }
