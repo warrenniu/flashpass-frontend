@@ -7,9 +7,6 @@ import ToggleCompletedComponent from './ToggleCompletedComponent'
 import {connect} from 'react-redux'
 
 function DeckComponent(props) {
-
-	// const lastCardId = props.deckObj.cards[props.deckObj.cards.length - 1].id
-	// console.log(lastCardId)
 	
 	const arrayOfCards = () => {
 		return props.deckObj.cards.map(cardEl => <CardComponent key={cardEl.id} cardObj={cardEl} />)
