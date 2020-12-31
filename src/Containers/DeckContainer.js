@@ -27,7 +27,6 @@ class DeckContainer extends React.Component {
 						return foundDeck ? 
 							(
 							<>
-								<h1>Deck Container</h1>
 								<DeckComponent deckObj={foundDeck} />
 							</>
 							)

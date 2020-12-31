@@ -12,6 +12,12 @@ const NavComponent = (props) => {
             </NavLink>
 
             <NavLink 
+            to="/decks/create"
+            >
+            {props.currentUserId ? "Create Deck" : ""}
+            </NavLink>
+
+            <NavLink 
             to="/decks"
             >
             {props.currentUserId ? "My Decks" : ""}

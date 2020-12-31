@@ -19,7 +19,6 @@ class CardComponent extends React.Component {
 	cards = this.deck[0].cards
 
 	render() {
-		console.log(this.cards.lastIndexOf(this.props.cardObj))
 		let nextCardId = this.cards[this.cards.lastIndexOf(this.props.cardObj) + 1] ? this.cards[this.cards.lastIndexOf(this.props.cardObj) + 1].id : null
 		let previousCardId = this.cards[this.cards.lastIndexOf(this.props.cardObj) - 1] ? this.cards[this.cards.lastIndexOf(this.props.cardObj) - 1].id : null
 		return (
@@ -36,6 +35,11 @@ class CardComponent extends React.Component {
 				</NavLink>
 
 				<DeleteCardComponent currentCard={this.props.cardObj} />
+				
+				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${this.props.cardObj.id}/edit`}>
+					<button>Edit Card</button>
+				</NavLink>
+
 				<Route path="/decks/:id/cards/:id/edit" render={() => <EditCardComponent currentCard={this.props.cardObj} />} />
 			</div>
 		)

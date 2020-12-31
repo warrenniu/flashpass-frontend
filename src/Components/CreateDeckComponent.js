@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+
 import {postDeck} from '../Redux/actions'
 
 class CreateDeckComponent extends React.Component {
@@ -20,8 +21,9 @@ class CreateDeckComponent extends React.Component {
 		e.preventDefault()
 		this.props.postDeck(this.state)
 		this.setState({title: "", subject: ""})
+		window.history.pushState({"":""}, "", "http://localhost:3000/decks")
+		window.history.forward()
 	}
-
 	render() {
 		return (
 			<div>

@@ -18,6 +18,7 @@ class EditCardComponent extends React.Component {
 	formSubmitHandler = (e) => {
 		e.preventDefault()
 		this.props.patchCard(this.state)
+		window.history.back()
 	}
 
 	render() {
@@ -29,7 +30,7 @@ class EditCardComponent extends React.Component {
 					<input type="text" placeholder={this.state.question} name="question" value={this.state.question} onChange={this.inputChangeHandler} />
 					<label htmlFor="Card Answer">Answer: </label>
 					<input type="text" placeholder={this.state.answer} name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />
-					<button>Edit Card</button>	
+					<button>Edit Card</button>
 				</form>
 				
 			</div>

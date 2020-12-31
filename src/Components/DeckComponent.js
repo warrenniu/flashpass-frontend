@@ -27,7 +27,7 @@ function DeckComponent(props) {
 			<p>Card Count: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</p>
 			<ToggleCompletedComponent currentDeck={props.deckObj} />
 			<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
-			<CreateCardComponent currentDeckId={props.deckObj.id} />
+			{window.location.pathname ===  "/decks" ? null : <CreateCardComponent currentDeckId={props.deckObj.id} />}
 			<Switch>
 				<Route path="/decks/:id/cards/:id" render={routerProps => {
 					const cardId = parseInt(routerProps.match.params.id)
