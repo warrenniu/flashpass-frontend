@@ -15,9 +15,13 @@ function DeckComponent(props) {
 	return (
 		<div>
 			<h1>Deck Component</h1>
-			<NavLink to={`/decks/${props.deckObj.id}/cards/${props.deckObj.cards[0].id}`}>
+			{props.deckObj.cards[0] ? 
+				<NavLink to={`/decks/${props.deckObj.id}/cards/${props.deckObj.cards[0].id}`}>
+					<h3>{props.deckObj.title}</h3>
+				</NavLink>
+				:
 				<h3>{props.deckObj.title}</h3>
-			</NavLink>	
+			}
 			<p>{props.deckObj.subject}</p>
 			<p>{props.deckObj.completed ? "Completed" : "Not Completed"}</p>
 			<p>Card Count: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</p>
