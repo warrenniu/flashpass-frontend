@@ -1,4 +1,4 @@
-import { GET_USERS, GET_DECKS, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD, PATCH_DECK_COMPLETED, PATCH_CARD } from './actionTypes';
+import { GET_USERS, POST_USER, GET_DECKS, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD, PATCH_DECK_COMPLETED, PATCH_CARD } from './actionTypes';
 
 const BASE_URL = "http://localhost:4000"
 
@@ -8,6 +8,22 @@ export function getUsers() {
 			.then(response => response.json())
 			.then(arrayOfUsers => {
 				dispatch({ type: GET_USERS, payload: arrayOfUsers })
+			})
+	}
+}
+
+export function postUser(newUser) {
+	return function (dispatch) {
+		fetch(`${BASE_URL}/api/v1/users`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(newUser),
+		})
+			.then(response => response.json())
+			.then(user => {
+				dispatch({ type: POST_USER, payload: user })
 			})
 	}
 }

@@ -10,6 +10,8 @@ function usersReducer(prevState = defaultState.users, action) {
 	switch (action.type) {
 		case "GET_USERS" :
 			return action.payload
+		case "POST_USER" :
+			return [...prevState, action.payload]
 		default :
 			return prevState
 	}
