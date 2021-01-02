@@ -22,7 +22,7 @@ class CreateDeckComponent extends React.Component {
 		this.props.postDeck(this.state)
 		this.setState({title: "", subject: ""})
 		window.history.pushState({"":""}, "", "http://localhost:3000/decks")
-		window.history.forward()
+		window.history.go(0)
 	}
 	render() {
 		return (

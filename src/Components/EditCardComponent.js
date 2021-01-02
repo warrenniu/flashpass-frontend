@@ -18,6 +18,7 @@ class EditCardComponent extends React.Component {
 	formSubmitHandler = (e) => {
 		e.preventDefault()
 		this.props.patchCard(this.state)
+		alert("Card has been edited")
 		window.history.back()
 	}
 

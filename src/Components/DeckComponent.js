@@ -20,7 +20,9 @@ function DeckComponent(props) {
 					<h3>{props.deckObj.title}</h3>
 				</NavLink>
 				:
-				<h3>{props.deckObj.title}</h3>
+				<NavLink to={`/decks/${props.deckObj.id}/cards`}>
+					<h3>{props.deckObj.title}</h3>
+				</NavLink>
 			}
 			<p>{props.deckObj.subject}</p>
 			<p>{props.deckObj.completed ? "Completed" : "Not Completed"}</p>

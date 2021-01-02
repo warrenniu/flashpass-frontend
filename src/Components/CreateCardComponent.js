@@ -18,6 +18,11 @@ class CreateCardComponent extends React.Component {
 		e.preventDefault()
 		this.props.postCard(this.state)
 		this.setState({question: "", answer: ""})
+		// const deck = this.props.decks.filter(deck => deck.id === this.state.deck_id)
+		// const newCard = deck[0].cards.slice(-1)
+		// window.history.pushState({"":""}, "", `http://localhost:3000/decks/${this.state.deck_id}/cards/${newCard[0].id}`)
+		alert("Card added to deck")
+		window.history.go(0)
 	}
 
 	render() {
@@ -36,10 +41,16 @@ class CreateCardComponent extends React.Component {
 	}
 }
 
+function msp(state) {
+	return {
+		decks: state.decks,
+	}
+}
+
 function mdp(dispatch) {
 	return {
 		postCard: newCardObj => dispatch(postCard(newCardObj))
 	}
 }
 
-export default connect(null, mdp)(CreateCardComponent)
+export default connect(msp, mdp)(CreateCardComponent)
