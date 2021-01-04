@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {postCard} from '../Redux/actions'
+import {withRouter} from 'react-router-dom'
 
 class CreateCardComponent extends React.Component {
 
@@ -18,11 +19,10 @@ class CreateCardComponent extends React.Component {
 		e.preventDefault()
 		this.props.postCard(this.state)
 		this.setState({question: "", answer: ""})
-		// const deck = this.props.decks.filter(deck => deck.id === this.state.deck_id)
-		// const newCard = deck[0].cards.slice(-1)
-		// window.history.pushState({"":""}, "", `http://localhost:3000/decks/${this.state.deck_id}/cards/${newCard[0].id}`)
+		const deck = this.props.decks.filter(deck => deck.id === this.state.deck_id)
+		const newCard = deck[0].cards.slice(-1)
+		this.props.history.push(`/decks/${this.state.deck_id}/cards/${newCard[0].id}`)
 		alert("Card added to deck")
-		window.history.go(0)
 	}
 
 	render() {
@@ -53,4 +53,4 @@ function mdp(dispatch) {
 	}
 }
 
-export default connect(msp, mdp)(CreateCardComponent)
+export default connect(msp, mdp)(withRouter(CreateCardComponent))

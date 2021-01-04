@@ -14,25 +14,25 @@ const NavComponent = (props) => {
             <NavLink 
             to="/decks/create"
             >
-            {props.currentUserId ? "Create Deck" : ""}
+            {props.user ? "Create Deck" : ""}
             </NavLink>
 
             <NavLink 
             to="/decks"
             >
-            {props.currentUserId ? "My Decks" : ""}
+            {props.user ? "My Decks" : ""}
             </NavLink>
 
             <NavLink 
             to="/login"
             >
-            {props.currentUserId ? "Log Out" : "Log In"}
+            {props.user ? "Log Out" : "Log In"}
             </NavLink>
 						
             <NavLink 
             to="/signup"
             >
-            {props.currentUserId ? "" : "Sign Up"}
+            {props.user ? "" : "Sign Up"}
             </NavLink>
         </div>
     )
@@ -40,7 +40,7 @@ const NavComponent = (props) => {
 
 function msp(state) {
     return {
-        currentUserId: state.currentUserId
+        user: state.user.user
     }
 }
 

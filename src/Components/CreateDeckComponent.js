@@ -10,7 +10,7 @@ class CreateDeckComponent extends React.Component {
 		subject: "",
 		completed: false,
 		count: 0,
-		user_id: this.props.currentUserId
+		user_id: this.props.user
 	}
 	
 	inputChangeHandler = (e) => {
@@ -42,7 +42,7 @@ class CreateDeckComponent extends React.Component {
 
 function msp(state) {
 	return {
-		currentUserId: state.currentUserId
+		user: state.user
 	}
 }
 

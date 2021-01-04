@@ -1,25 +1,16 @@
-import { GET_USERS, POST_USER, GET_DECKS, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD, PATCH_DECK_COMPLETED, PATCH_CARD } from './actionTypes';
+import { POST_USER, POST_LOGIN, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD, PATCH_DECK_COMPLETED, PATCH_CARD } from './actionTypes';
 
 const BASE_URL = "http://localhost:4000"
-
-export function getUsers() {
-	return function (dispatch) {
-		fetch(`${BASE_URL}/api/v1/users`)
-			.then(response => response.json())
-			.then(arrayOfUsers => {
-				dispatch({ type: GET_USERS, payload: arrayOfUsers })
-			})
-	}
-}
 
 export function postUser(newUser) {
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/users`, {
 			method: 'POST',
 			headers: {
+				accepts: 'application/json',
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(newUser),
+			body: JSON.stringify({user: newUser}),
 		})
 			.then(response => response.json())
 			.then(user => {
@@ -28,15 +19,33 @@ export function postUser(newUser) {
 	}
 }
 
-export function getDecks() {
+export function postLogin(userInfo) {
 	return function (dispatch) {
-		fetch(`${BASE_URL}/api/v1/decks`)
+		fetch(`${BASE_URL}/api/v1/login`, {
+			method: 'POST',
+			headers: {
+				accepts: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({user: userInfo}),
+		})
 			.then(response => response.json())
-			.then(arrayOfDecks => {
-				dispatch({ type: GET_DECKS, payload: arrayOfDecks })
+			.then(data => {
+				localStorage.setItem("token", data.jwt)
+				dispatch({ type: POST_LOGIN, payload: data.user})
 			})
 	}
 }
+
+// export function getDecks() {
+// 	return function (dispatch) {
+// 		fetch(`${BASE_URL}/api/v1/decks`)
+// 			.then(response => response.json())
+// 			.then(arrayOfDecks => {
+// 				dispatch({ type: GET_DECKS, payload: arrayOfDecks })
+// 			})
+// 	}
+// }
 
 export function postDeck(newDeckObj) {
 	return function (dispatch) {
