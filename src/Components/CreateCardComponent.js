@@ -8,7 +8,7 @@ class CreateCardComponent extends React.Component {
 	state = {
 		question: "",
 		answer: "",
-		deck_id: this.props.currentDeckId
+		deck_id: this.props.currentDeckId,
 	}
 
 	inputChangeHandler = (e) => {
@@ -19,9 +19,8 @@ class CreateCardComponent extends React.Component {
 		e.preventDefault()
 		this.props.postCard(this.state)
 		this.setState({question: "", answer: ""})
-		const deck = this.props.decks.filter(deck => deck.id === this.state.deck_id)
-		const newCard = deck[0].cards.slice(-1)
-		this.props.history.push(`/decks/${this.state.deck_id}/cards/${newCard[0].id}`)
+		const firstCard = this.props.decks.find(deck => deck.id === this.state.deck_id).cards[0]
+		this.props.history.push(`/decks/${this.state.deck_id}/cards/${firstCard.id}`)
 		alert("Card added to deck")
 	}
 

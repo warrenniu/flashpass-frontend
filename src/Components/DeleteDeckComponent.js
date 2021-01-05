@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { deleteDeck } from '../Redux/actions'
+import { withRouter } from 'react-router-dom'
 
 function DeleteDeckComponent(props) {
 
 	const clickHandler = () => {
 		props.deleteDeck(props.currentDeckId)
+		props.history.push('/decks')
 	}
 
 	return (
@@ -19,4 +21,4 @@ function mdp(dispatch) {
 	}
 }
 
-export default connect(null, mdp)(DeleteDeckComponent)
+export default connect(null, mdp)(withRouter(DeleteDeckComponent))

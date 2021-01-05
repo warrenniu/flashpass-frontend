@@ -135,6 +135,7 @@ export function postCard(newCardObj) {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
 			},
 			body: JSON.stringify(newCardObj),
 		})
@@ -149,12 +150,16 @@ export function deleteCard(cardObj) {
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/cards/${cardObj.id}`, {
 			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
+			}
 		})
 			.then(response => response.json())
 			.then(data => {
 				dispatch({ type: DELETE_CARD, payload: cardObj })
 			})
-	}
+		}
 }
 
 export function patchCard(updatedCardObj) {
@@ -163,6 +168,7 @@ export function patchCard(updatedCardObj) {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
 			},
 			body: JSON.stringify(updatedCardObj),
 		})

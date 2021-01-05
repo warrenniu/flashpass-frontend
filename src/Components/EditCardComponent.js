@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {patchCard} from '../Redux/actions'
+import {withRouter} from 'react-router-dom'
 
 class EditCardComponent extends React.Component {
 
@@ -19,7 +20,7 @@ class EditCardComponent extends React.Component {
 		e.preventDefault()
 		this.props.patchCard(this.state)
 		alert("Card has been edited")
-		window.history.back()
+		this.props.history.push(`/decks/${this.state.deck_id}/cards/${this.state.id}`)
 	}
 
 	render() {
@@ -45,4 +46,4 @@ function mdp(dispatch) {
 	}
 }
 
-export default connect(null, mdp)(EditCardComponent)
+export default connect(null, mdp)(withRouter(EditCardComponent))
