@@ -10,13 +10,14 @@ function ToggleCompletedComponent(props) {
 	}
 
 	return (
-		<button onClick={() => clickHandler()}>{props.user.user.decks.find(deck => deck.id === props.currentDeck.id).completed ? "Mark Incomplete" : "Mark Completed"}</button>
+		<button onClick={() => clickHandler()}>{props.decks.find(deck => deck.id === props.currentDeck.id).completed ? "Mark Incomplete" : "Mark Completed"}</button>
 	)
 }
 
 function msp(state) {
 	return {
-		user: state.user
+		user: state.user,
+		decks: state.decks
 	}
 }
 

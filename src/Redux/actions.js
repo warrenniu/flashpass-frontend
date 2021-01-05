@@ -1,6 +1,32 @@
-import { POST_USER, POST_LOGIN, POST_DECK, POST_CARD, DELETE_DECK, DELETE_CARD, PATCH_DECK_COMPLETED, PATCH_CARD } from './actionTypes';
+import {
+	GET_USER,
+	REMOVE_USER,
+	POST_USER,
+	POST_LOGIN,
+	POST_DECK,
+	POST_CARD,
+	DELETE_DECK,
+	DELETE_CARD,
+	PATCH_DECK_COMPLETED,
+	PATCH_CARD,
+	GET_DECKS
+	} from './actionTypes';
 
 const BASE_URL = "http://localhost:4000"
+
+const token = localStorage.getItem("token")
+
+export function getUser(currentUser) {
+	return function (dispatch) {
+		dispatch({ type: GET_USER, payload: currentUser })
+	}
+}
+
+export function removeUser() {
+	return function (dispatch) {
+		dispatch({ type: REMOVE_USER })
+	}
+}
 
 export function postUser(newUser) {
 	return function (dispatch) {
@@ -32,20 +58,26 @@ export function postLogin(userInfo) {
 			.then(response => response.json())
 			.then(data => {
 				localStorage.setItem("token", data.jwt)
-				dispatch({ type: POST_LOGIN, payload: data.user})
+				dispatch({ type: POST_LOGIN, payload: data})
 			})
 	}
 }
 
-// export function getDecks() {
-// 	return function (dispatch) {
-// 		fetch(`${BASE_URL}/api/v1/decks`)
-// 			.then(response => response.json())
-// 			.then(arrayOfDecks => {
-// 				dispatch({ type: GET_DECKS, payload: arrayOfDecks })
-// 			})
-// 	}
-// }
+export function getDecks() {
+	return function (dispatch) {
+		fetch(`${BASE_URL}/api/v1/decks`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
+			}
+		})
+			.then(response => response.json())
+			.then(arrayOfDecks => {
+				dispatch({ type: GET_DECKS, payload: arrayOfDecks })
+			})
+	}
+}
 
 export function postDeck(newDeckObj) {
 	return function (dispatch) {
@@ -53,6 +85,7 @@ export function postDeck(newDeckObj) {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
 			},
 			body: JSON.stringify(newDeckObj),
 		})
@@ -67,6 +100,10 @@ export function deleteDeck(deckObjId) {
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/decks/${deckObjId}`, {
 			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
+			}
 		})
 			.then(response => response.json())
 			.then(deckObj => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {withRouter} from 'react-router-dom'
 import {postDeck} from '../Redux/actions'
 
 class CreateDeckComponent extends React.Component {
@@ -9,8 +9,7 @@ class CreateDeckComponent extends React.Component {
 		title: "",
 		subject: "",
 		completed: false,
-		count: 0,
-		user_id: this.props.user
+		user_id: this.props.user.id
 	}
 	
 	inputChangeHandler = (e) => {
@@ -21,10 +20,10 @@ class CreateDeckComponent extends React.Component {
 		e.preventDefault()
 		this.props.postDeck(this.state)
 		this.setState({title: "", subject: ""})
-		window.history.pushState({"":""}, "", "http://localhost:3000/decks")
-		window.history.go(0)
+		this.props.history.push(`/decks/`)
 	}
 	render() {
+		console.log(this.props.user)
 		return (
 			<div>
 				<h1>Create Deck Component</h1>
@@ -52,4 +51,4 @@ function mdp(dispatch) {
 	}
 }
 
-export default connect(msp, mdp)(CreateDeckComponent)
+export default connect(msp, mdp)(withRouter(CreateDeckComponent))

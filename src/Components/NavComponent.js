@@ -1,47 +1,63 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {removeUser} from '../Redux/actions'
 
-const NavComponent = (props) => {
-    return (
-        <div>
-            <NavLink 
-            to="/"
-            >
-            Home
-            </NavLink>
+class NavComponent extends React.Component {
 
-            <NavLink 
-            to="/decks/create"
-            >
-            {props.user ? "Create Deck" : ""}
-            </NavLink>
+	logOutHandler = () => {
+		localStorage.removeItem("token")
+		this.props.removeUser()
+	}
+		
+	render() {
+		console.log("in nav props.user:", this.props.user)
+		return (
+			<ul>
+				<NavLink 
+				to="/"
+				>
+				<li>Home</li>
+				</NavLink>
 
-            <NavLink 
-            to="/decks"
-            >
-            {props.user ? "My Decks" : ""}
-            </NavLink>
+				<NavLink 
+				to="/decks/create"
+				>
+				{this.props.user ? <li>Create Deck</li> : ""}
+				</NavLink>
 
-            <NavLink 
-            to="/login"
-            >
-            {props.user ? "Log Out" : "Log In"}
-            </NavLink>
-						
-            <NavLink 
-            to="/signup"
-            >
-            {props.user ? "" : "Sign Up"}
-            </NavLink>
-        </div>
-    )
+				<NavLink 
+				to="/decks"
+				>
+				{this.props.user ? <li>My Decks</li> : ""}
+				</NavLink>
+
+				<NavLink 
+				to="/login"
+				>
+				{this.props.user ? <li onClick={() => this.logOutHandler()}>Log Out</li> : <li>Log In</li>}
+				</NavLink>
+				
+				<NavLink 
+				to="/signup"
+				>
+				{this.props.user ? "" : <li>Sign Up</li>}
+				</NavLink>
+			</ul>
+		)
+	}
 }
 
 function msp(state) {
     return {
-        user: state.user.user
+        user: state.user
     }
 }
 
-export default connect(msp)(NavComponent)
+function mdp(dispatch) {
+	return {
+		removeUser: () => dispatch(removeUser())
+	}
+}
+
+export default connect(msp, mdp)(NavComponent)

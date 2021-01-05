@@ -3,29 +3,28 @@ import DeckComponent from '../Components/DeckComponent'
 import CreateDeckComponent from '../Components/CreateDeckComponent'
 import {Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
-// import {getDecks} from '../Redux/actions'
+import {getDecks} from '../Redux/actions'
 
 class DeckContainer extends React.Component {
 
-	// componentDidMount() {
-	// 	this.props.getDecks()
-	// }
+	componentDidMount() {
+		this.props.getDecks()
+	}
 
 	arrayOfDecks = () => {
-		// const userDecksArray = this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id)
-		const userDecksArray = this.props.user.decks
+		const userDecksArray = this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id)
 		return userDecksArray.map(deckEl => <DeckComponent key={deckEl.id} deckObj={deckEl} />)
 	}
 
 	render () {
-		console.log(this.props)
+		console.log("in deck container props.user", this.props.user)
 		return (
 			<div>
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />
 					<Route path="/decks/:id" render={routerProps => {
 						const deckId = parseInt(routerProps.match.params.id)
-						const foundDeck = this.props.user.decks.find(deckEl => deckEl.id === deckId)
+						const foundDeck = this.props.decks.find(deckEl => deckEl.id === deckId)
 						return foundDeck ? 
 							(
 							<>
@@ -35,15 +34,13 @@ class DeckContainer extends React.Component {
 							: 
 							<h3>Loading...</h3>
 					}} />
-					<Route path="/decks" render={() => {
-						if (this.props.user) {
-							this.props.user.decks.length === 0 ? <p>Loading...</p> : this.arrayOfDecks()
-						} else {
-							<p>Loading...</p>
-						}
-						} 
-					}
-					 />
+					<Route path="/decks" render={() => 
+						this.props.decks.length === 0
+						?
+						<p>Loading...</p>
+						:
+						this.arrayOfDecks()}
+					/>
 				</Switch>
 			</div>
 		)
@@ -52,16 +49,15 @@ class DeckContainer extends React.Component {
 
 function msp(state) {
 	return {
-		// decks: state.decks,
-		user: state.user.user
+		user: state.user,
+		decks: state.decks
 	}
 }
 
-// function mdp(dispatch) {
-// 	return {
-// 		getDecks: () => dispatch(getDecks())
-// 	}
-// }
+function mdp(dispatch) {
+	return {
+		getDecks: () => dispatch(getDecks())
+	}
+}
 
-
-export default connect(msp)(DeckContainer)
+export default connect(msp, mdp)(DeckContainer)

@@ -26,7 +26,7 @@ function DeckComponent(props) {
 			}
 			<p>{props.deckObj.subject}</p>
 			<p>{props.deckObj.completed ? "Completed" : "Not Completed"}</p>
-			<p>Card Count: {props.user.user.decks.find(deck => deck.id === props.deckObj.id).cards.length}</p>
+			<p>Card Count: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</p>
 			<ToggleCompletedComponent currentDeck={props.deckObj} />
 			<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
 			{window.location.pathname ===  "/decks" ? null : <CreateCardComponent currentDeckId={props.deckObj.id} />}
@@ -44,8 +44,8 @@ function DeckComponent(props) {
 
 function msp(state) {
 	return {
-		decks: state.decks,
-		user: state.user
+		user: state.user,
+		decks: state.decks
 	}
 }
 
