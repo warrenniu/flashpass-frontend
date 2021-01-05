@@ -118,6 +118,7 @@ export function patchDeckCompleted(deckObj) {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
 			},
 			body: JSON.stringify(deckObj),
 		})
