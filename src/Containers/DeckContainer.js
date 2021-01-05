@@ -20,7 +20,7 @@ class DeckContainer extends React.Component {
 	render () {
 		return (
 			<div>
-				{/* {localStorage.token ? <h3>Welcome {this.props.user.first_name}!</h3> : <h3>Please log in or sign up!</h3>} */}
+				{this.props.user !== null ? <h3>Welcome {this.props.user.first_name}!</h3> : <h3>Please log in or sign up!</h3>}
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />
 					<Route path="/decks/:id" render={routerProps => {
@@ -36,7 +36,7 @@ class DeckContainer extends React.Component {
 							<h3>Loading...</h3>
 					}} />
 					<Route path="/decks" render={() => 
-						this.props.decks.length === 0 || this.props.user === null
+						this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id).length === 0 || this.props.user === null
 						?
 						<p>No Decks to Load</p>
 						:
