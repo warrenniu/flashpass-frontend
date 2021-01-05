@@ -35,13 +35,15 @@ class DeckContainer extends React.Component {
 							: 
 							<h3>Loading...</h3>
 					}} />
-					<Route path="/decks" render={() => 
-						this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id).length === 0 || this.props.user === null
-						?
-						<p>No Decks to Load</p>
-						:
-						this.arrayOfDecks()}
-					/>
+					{this.props.user === null ? null :
+						<Route path="/decks" render={() => 
+							this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id).length === 0 || this.props.user === null
+							?
+							<p>No Decks to Load</p>
+							:
+							this.arrayOfDecks()}
+						/>
+					}
 				</Switch>
 			</div>
 		)
