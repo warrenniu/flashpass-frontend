@@ -13,7 +13,8 @@ class DeckContainer extends React.Component {
 
 	arrayOfDecks = () => {
 		const userDecksArray = this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id)
-		return userDecksArray.map(deckEl => <DeckComponent key={deckEl.id} deckObj={deckEl} />)
+		const sortedUserDecksArray = userDecksArray.sort((a, b) => parseFloat(a.id) - parseFloat(b.id))
+		return sortedUserDecksArray.map(deckEl => <DeckComponent key={deckEl.id} deckObj={deckEl} />)
 	}
 
 	render () {
