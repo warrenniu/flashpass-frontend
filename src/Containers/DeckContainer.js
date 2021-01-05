@@ -20,6 +20,7 @@ class DeckContainer extends React.Component {
 	render () {
 		return (
 			<div>
+				{/* {localStorage.token ? <h3>Welcome {this.props.user.first_name}!</h3> : <h3>Please log in or sign up!</h3>} */}
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />
 					<Route path="/decks/:id" render={routerProps => {

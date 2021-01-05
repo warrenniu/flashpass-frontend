@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {postUser} from '../Redux/actions'
+import {withRouter} from 'react-router-dom'
 
 class SignUpComponent extends React.Component {
 	state = {
@@ -19,6 +20,7 @@ class SignUpComponent extends React.Component {
 	submitHandler = (e) => {
 		e.preventDefault()
 		this.props.postUser(this.state)
+		this.props.history.push('/login')
 	}
 
 	render() {
@@ -26,7 +28,7 @@ class SignUpComponent extends React.Component {
 			<>
 			<h1>Sign Up Component</h1>
 			<form onSubmit={this.submitHandler}>
-				<input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
+				<input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
 				<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} />
 				<input type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.changeHandler} />
 				<input type="text" name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.changeHandler} />
@@ -43,4 +45,4 @@ function mdp(dispatch) {
 	}
 }
 
-export default connect(null, mdp)(SignUpComponent)
+export default connect(null, mdp)(withRouter(SignUpComponent))

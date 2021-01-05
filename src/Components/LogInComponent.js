@@ -26,7 +26,7 @@ class LogInComponent extends React.Component {
 			<>
 				<h1>Login Component</h1>
 				<form onSubmit={this.submitHandler}>
-					<input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
+					<input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
 					<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} />
 					<input type="submit" value="Log In" />
 				</form>
@@ -43,7 +43,7 @@ function msp(state) {
 
 function mdp(dispatch) {
 	return {
-		postLogin: userInfo => dispatch(postLogin(userInfo))
+		postLogin: userInfo => dispatch(postLogin(userInfo)),
 	}
 }
 

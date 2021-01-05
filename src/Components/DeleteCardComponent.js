@@ -9,7 +9,7 @@ function DeleteCardComponent(props) {
 		const deckId = props.currentCard.deck_id
 		const firstCardId = props.decks.find(deck => deck.id === deckId).cards[0].id
 		props.deleteCard(props.currentCard)
-		props.history.push(`/decks/${deckId}/cards/${firstCardId}`)
+		props.decks.find(deck => deck.id === deckId).cards[0] ? props.history.push(`/decks/${deckId}/cards/${firstCardId}`) : props.history.push(`/decks/${deckId}`)
 		alert("Card deleted from deck")
 	}
 

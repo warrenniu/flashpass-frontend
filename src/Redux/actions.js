@@ -14,8 +14,6 @@ import {
 
 const BASE_URL = "http://localhost:4000"
 
-const token = localStorage.getItem("token")
-
 export function getUser(currentUser) {
 	return function (dispatch) {
 		dispatch({ type: GET_USER, payload: currentUser })
@@ -64,6 +62,7 @@ export function postLogin(userInfo) {
 }
 
 export function getDecks() {
+	const token = localStorage.getItem("token")
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/decks`, {
 			method: 'GET',
@@ -80,6 +79,7 @@ export function getDecks() {
 }
 
 export function postDeck(newDeckObj) {
+	const token = localStorage.getItem("token")
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/decks`, {
 			method: 'POST',
@@ -97,6 +97,7 @@ export function postDeck(newDeckObj) {
 }
 
 export function deleteDeck(deckObjId) {
+	const token = localStorage.getItem("token")
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/decks/${deckObjId}`, {
 			method: 'DELETE',
@@ -113,6 +114,7 @@ export function deleteDeck(deckObjId) {
 }
 
 export function patchDeckCompleted(deckObj) {
+	const token = localStorage.getItem("token")
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/decks/${deckObj.id}`, {
 			method: 'PATCH',
@@ -130,6 +132,7 @@ export function patchDeckCompleted(deckObj) {
 }
 
 export function postCard(newCardObj) {
+	const token = localStorage.getItem("token")
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/cards`, {
 			method: 'POST',
@@ -147,6 +150,7 @@ export function postCard(newCardObj) {
 }
 
 export function deleteCard(cardObj) {
+	const token = localStorage.getItem("token")
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/cards/${cardObj.id}`, {
 			method: 'DELETE',
@@ -163,6 +167,7 @@ export function deleteCard(cardObj) {
 }
 
 export function patchCard(updatedCardObj) {
+	const token = localStorage.getItem("token")
 	return function (dispatch) {
 		fetch(`${BASE_URL}/api/v1/cards/${updatedCardObj.id}`, {
 			method: 'PATCH',

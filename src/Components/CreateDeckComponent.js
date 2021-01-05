@@ -23,7 +23,6 @@ class CreateDeckComponent extends React.Component {
 		this.props.history.push(`/decks/`)
 	}
 	render() {
-		console.log(this.props.user)
 		return (
 			<div>
 				<h1>Create Deck Component</h1>
