@@ -18,7 +18,6 @@ class DeckContainer extends React.Component {
 	}
 
 	render () {
-		console.log("in deck container props.user", this.props.user)
 		return (
 			<div>
 				<Switch>

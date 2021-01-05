@@ -18,6 +18,8 @@ class CardComponent extends React.Component {
 
 	cards = this.deck[0].cards
 
+	sortedCards = this.cards.sort((a, b) => parseFloat(a.id) - parseFloat(b.id))
+
 	render() {
 		let nextCardId = this.cards[this.cards.lastIndexOf(this.props.cardObj) + 1] ? this.cards[this.cards.lastIndexOf(this.props.cardObj) + 1].id : null
 		let previousCardId = this.cards[this.cards.lastIndexOf(this.props.cardObj) - 1] ? this.cards[this.cards.lastIndexOf(this.props.cardObj) - 1].id : null

@@ -22,7 +22,6 @@ class App extends React.Component {
 				.then(resp => resp.json())
 				.then(data => {
 					this.props.getUser(data)
-					console.log(data)
 				})
 			} else {
 				this.props.history.push('/login')

@@ -9,7 +9,8 @@ import {connect} from 'react-redux'
 function DeckComponent(props) {
 	
 	const arrayOfCards = () => {
-		return props.deckObj.cards.map(cardEl => <CardComponent key={cardEl.id} cardObj={cardEl} />)
+		const sortedCards = props.deckObj.cards.sort((a, b) => parseFloat(a.id) - parseFloat(b.id))
+		return sortedCards.map(cardEl => <CardComponent key={cardEl.id} cardObj={cardEl} />)
 	}
 
 	return (

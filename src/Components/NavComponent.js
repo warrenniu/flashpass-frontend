@@ -11,7 +11,6 @@ class NavComponent extends React.Component {
 	}
 		
 	render() {
-		console.log("in nav props.user:", this.props.user)
 		return (
 			<ul>
 				<NavLink 
