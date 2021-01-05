@@ -35,7 +35,7 @@ class DeckContainer extends React.Component {
 							<h3>Loading...</h3>
 					}} />
 					<Route path="/decks" render={() => 
-						this.props.decks.length === 0
+						this.props.decks.length === 0 || this.props.user === null
 						?
 						<p>Loading...</p>
 						:
