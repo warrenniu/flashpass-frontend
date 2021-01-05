@@ -19,8 +19,7 @@ class CreateCardComponent extends React.Component {
 		e.preventDefault()
 		this.props.postCard(this.state)
 		this.setState({question: "", answer: ""})
-		const firstCard = this.props.decks.find(deck => deck.id === this.state.deck_id).cards[0]
-		this.props.history.push(`/decks/${this.state.deck_id}/cards/${firstCard.id}`)
+		
 		alert("Card added to deck")
 	}
 

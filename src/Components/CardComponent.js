@@ -14,26 +14,23 @@ class CardComponent extends React.Component {
 		this.setState({clicked: !this.state.clicked})
 	}
 
-	deck = this.props.decks.filter(deck => deck.id === this.props.cardObj.deck_id)
-
-	cards = this.deck[0].cards
-
-	sortedCards = this.cards.sort((a, b) => parseFloat(a.id) - parseFloat(b.id))
-
 	render() {
-		let nextCardId = this.cards[this.cards.lastIndexOf(this.props.cardObj) + 1] ? this.cards[this.cards.lastIndexOf(this.props.cardObj) + 1].id : null
-		let previousCardId = this.cards[this.cards.lastIndexOf(this.props.cardObj) - 1] ? this.cards[this.cards.lastIndexOf(this.props.cardObj) - 1].id : null
+		let deck = this.props.decks.filter(deck => deck.id === this.props.cardObj.deck_id)
+		let cards = deck[0].cards
+		let sortedCards = cards.sort((a, b) => parseFloat(a.id) - parseFloat(b.id))
+		let nextCardId = sortedCards[sortedCards.lastIndexOf(this.props.cardObj) + 1] ? sortedCards[sortedCards.lastIndexOf(this.props.cardObj) + 1].id : null
+		let previousCardId = sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1] ? sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1].id : null
 		return (
 			<div>
 				<h1>Card Component</h1>
 				{this.state.clicked ? <p onClick={this.clickHandler}>A: {this.props.cardObj.answer}</p> : <p onClick={this.clickHandler}>Q: {this.props.cardObj.question}</p> }
 				
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${previousCardId}`}>
-					{this.cards.lastIndexOf(this.props.cardObj) > 0 ? <button>Previous</button> : null}
+					{sortedCards.lastIndexOf(this.props.cardObj) > 0 ? <button>Previous</button> : null}
 				</NavLink>
 
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${nextCardId}`}>
-					{this.cards.lastIndexOf(this.props.cardObj) + 1 < this.cards.length ? <button>Next</button> : null}
+					{sortedCards.lastIndexOf(this.props.cardObj) + 1 < sortedCards.length ? <button>Next</button> : null}
 				</NavLink>
 
 				<DeleteCardComponent currentCard={this.props.cardObj} />
