@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {postDeck} from '../Redux/actions'
 
+
 class CreateDeckComponent extends React.Component {
 
 	state = {
@@ -20,8 +21,9 @@ class CreateDeckComponent extends React.Component {
 		e.preventDefault()
 		this.props.postDeck(this.state)
 		this.setState({title: "", subject: ""})
-		this.props.history.push(`/decks/`)
+		this.props.history.push("/decks")
 	}
+
 	render() {
 		return (
 			<div>
@@ -31,7 +33,7 @@ class CreateDeckComponent extends React.Component {
 					<input type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} />
 					<label htmlFor="Deck Subject">Deck Subject: </label>
 					<input type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} />
-					<button>Add Deck</button>	
+					<button>Add Deck</button>
 				</form>
 			</div>
 		)
