@@ -31,7 +31,7 @@ class CardComponent extends React.Component {
 					ref={(r) => this.flippy = r}
 					style={{ width: '400px', height: '200px' }}
 				>
-					<FrontSide style={{backgroundColor: '#3399ff'}}>
+					<FrontSide style={{backgroundColor: '#3399ff', color: 'white'}}>
 						{this.props.cardObj.question}
 					</FrontSide>
 					<BackSide style={{ backgroundColor: '#ffff00'}}>
