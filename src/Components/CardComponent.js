@@ -1,10 +1,12 @@
 import React from 'react'
 import EditCardComponent from './EditCardComponent'
-import {Route, NavLink} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import DeleteCardComponent from './DeleteCardComponent'
 import Button from '@material-ui/core/Button'
 import Flippy, { FrontSide, BackSide } from 'react-flippy'
+import { Link as RouterLink } from 'react-router-dom'
+
 
 class CardComponent extends React.Component {
 
@@ -63,33 +65,28 @@ class CardComponent extends React.Component {
 					</BackSide>
 				</Flippy>
 				
-				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${previousCardId}`}>
-					{sortedCards.lastIndexOf(this.props.cardObj) > 0 ? 
-						<Button style={{'marginRight': '10px'}} variant="contained" color="primary">
-							Previous
-						</Button>
-						:
-						null
-					}
-				</NavLink>
+				
+				{sortedCards.lastIndexOf(this.props.cardObj) > 0 ?
+				<Button style={{'marginRight': '10px'}} variant="contained" color="primary" component={RouterLink} to={`/decks/${this.props.cardObj.deck_id}/cards/${previousCardId}`}>
+						Previous
+				</Button>
+					:
+					null
+				}
 
-				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${nextCardId}`}>
-					{sortedCards.lastIndexOf(this.props.cardObj) + 1 < sortedCards.length ? 
-						<Button style={{'marginRight': '10px'}} variant="contained" color="primary">
-							Next
-						</Button> 
-						: 
-						null
-					}
-				</NavLink>
+				{sortedCards.lastIndexOf(this.props.cardObj) + 1 < sortedCards.length ?
+				<Button style={{'marginRight': '10px'}} variant="contained" color="primary" component={RouterLink} to={`/decks/${this.props.cardObj.deck_id}/cards/${nextCardId}`}>
+						Next
+				</Button>
+					:
+					null
+				}
 
 				<DeleteCardComponent currentCard={this.props.cardObj} />
 				
-				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${this.props.cardObj.id}/edit`}>
-					<Button variant="contained" color="primary">
+				<Button variant="contained" color="primary" component={RouterLink} to={`/decks/${this.props.cardObj.deck_id}/cards/${this.props.cardObj.id}/edit`}>
 						Edit Card
-					</Button>
-				</NavLink>
+				</Button>
 
 				<Route path="/decks/:id/cards/:id/edit" render={() => <EditCardComponent currentCard={this.props.cardObj} />} />
 			</div>

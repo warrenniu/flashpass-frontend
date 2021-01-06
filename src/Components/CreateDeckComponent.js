@@ -27,11 +27,21 @@ class CreateDeckComponent extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h3>Create FlashDeck</h3>
+			<div style={{
+				'border': '1px solid black',
+				'borderRadius': '3%',
+				'boxShadow': `5px 5px 5px 2px grey`,
+				'width': '250px',
+				'margin': '15px',
+				'padding': '15px',
+				'textAlign': 'center',
+				'marginLeft': 'auto',
+				'marginRight': 'auto'
+				}}>
+				<h3 style={{'color': '#008E4F'}}>Create FlashDeck</h3>
 				<form onSubmit={this.formSubmitHandler}>
-					<Input type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} />
-					<Input type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} />
+					<Input style={{'marginBottom': '10px'}} type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} /><br />
+					<Input style={{'marginBottom': '10px'}} type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} /><br />
 					<Button variant="contained" color="primary" type="submit">
 						Add Deck
 					</Button>
