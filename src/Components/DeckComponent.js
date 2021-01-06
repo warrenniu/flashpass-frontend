@@ -35,12 +35,12 @@ function DeckComponent(props) {
 			'border': '1px solid black',
 			'borderRadius': '3%',
 			'boxShadow': `5px 5px 5px 2px grey`,
-			'width': '400px',
+			'width': '535px',
 			'marginBottom': '15px',
 			'padding': '15px',
 			'textAlign': 'center',
 			'marginLeft': 'auto',
-			'marginRight': 'auto',
+			'marginRight': 'auto'
 			}}>
 
 			{props.deckObj.cards[0] ?

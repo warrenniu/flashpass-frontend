@@ -15,7 +15,7 @@ function DeleteCardComponent(props) {
 	}
 
 	return (
-		<Button variant="contained" color="primary" onClick={() => clickHandler()}>
+		<Button style={{'marginRight': '10px'}} variant="contained" color="primary" onClick={() => clickHandler()}>
 			Delete Card
 		</Button>
 	)

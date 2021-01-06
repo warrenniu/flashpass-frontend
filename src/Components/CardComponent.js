@@ -23,7 +23,9 @@ class CardComponent extends React.Component {
 		let nextCardId = sortedCards[sortedCards.lastIndexOf(this.props.cardObj) + 1] ? sortedCards[sortedCards.lastIndexOf(this.props.cardObj) + 1].id : null
 		let previousCardId = sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1] ? sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1].id : null
 		return (
-			<div>
+			<div style={{
+				'textAlign': 'center'
+				}}>
 				<Flippy
 					flipOnHover={false}
 					flipOnClick={true}
@@ -31,17 +33,18 @@ class CardComponent extends React.Component {
 					ref={(r) => this.flippy = r}
 					style={{
 						width: '500px', 
-						height: '300px' 
+						height: '300px',
+						marginBottom: '15px'
 					}}
 				>
 					<FrontSide style={{
 							'backgroundColor': '#FFFB18',
 							'border': "1px solid black",
-							'border-radius': '3%',
-							'box-shadow': `5px 5px 5px 2px grey`,
+							'borderRadius': '3%',
+							'boxShadow': `5px 5px 5px 2px grey`,
 							'color': '#000000',
-							'font-size': '24px',
-							'text-align': 'center'
+							'fontSize': '24px',
+							'textAlign': 'center'
 						}}>
 						<h3>QUESTION</h3>
 						{this.props.cardObj.question}
@@ -49,11 +52,11 @@ class CardComponent extends React.Component {
 					<BackSide style={{
 							'backgroundColor': '#FFFB18',
 							'border': "1px solid black",
-							'box-shadow': `5px 5px 5px 2px grey`,
-							'border-radius': '3%',
+							'boxShadow': `5px 5px 5px 2px grey`,
+							'borderRadius': '3%',
 							'color': '#000000',
-							'font-size': '24px',
-							'text-align': 'center'
+							'fontSize': '24px',
+							'textAlign': 'center'
 						}}>
 						<h3>ANSWER</h3>
 						{this.props.cardObj.answer}
@@ -62,7 +65,7 @@ class CardComponent extends React.Component {
 				
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${previousCardId}`}>
 					{sortedCards.lastIndexOf(this.props.cardObj) > 0 ? 
-						<Button variant="contained" color="primary">
+						<Button style={{'marginRight': '10px'}} variant="contained" color="primary">
 							Previous
 						</Button>
 						:
@@ -72,7 +75,7 @@ class CardComponent extends React.Component {
 
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${nextCardId}`}>
 					{sortedCards.lastIndexOf(this.props.cardObj) + 1 < sortedCards.length ? 
-						<Button variant="contained" color="primary">
+						<Button style={{'marginRight': '10px'}} variant="contained" color="primary">
 							Next
 						</Button> 
 						: 

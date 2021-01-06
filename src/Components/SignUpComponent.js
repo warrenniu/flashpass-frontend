@@ -34,7 +34,9 @@ class SignUpComponent extends React.Component {
 				'width': '250px',
 				'margin': '15px',
 				'padding': '15px',
-				'textAlign': 'center' 
+				'textAlign': 'center',
+				'marginLeft': 'auto',
+				'marginRight': 'auto'
 				}}>
 			<h3 style={{'color': '#008E4F'}}>Sign Up</h3>
 			<form onSubmit={this.submitHandler}>
