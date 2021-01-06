@@ -4,6 +4,7 @@ import {Route, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import DeleteCardComponent from './DeleteCardComponent'
 import Button from '@material-ui/core/Button'
+import Flippy, { FrontSide, BackSide } from 'react-flippy'
 
 class CardComponent extends React.Component {
 
@@ -23,6 +24,21 @@ class CardComponent extends React.Component {
 		let previousCardId = sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1] ? sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1].id : null
 		return (
 			<div>
+				<Flippy
+					flipOnHover={false}
+					flipOnClick={true}
+					flipDirection="horizontal"
+					ref={(r) => this.flippy = r}
+					style={{ width: '200px', height: '200px' }}
+				>
+					<FrontSide style={{backgroundColor: '#41669d'}}>
+						{this.props.cardObj.question}
+					</FrontSide>
+					<BackSide style={{ backgroundColor: '#175852'}}>
+						{this.props.cardObj.answer}
+					</BackSide>
+				</Flippy>
+
 				{this.state.clicked ? <p onClick={this.clickHandler}>A: {this.props.cardObj.answer}</p> : <p onClick={this.clickHandler}>Q: {this.props.cardObj.question}</p> }
 				
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${previousCardId}`}>
