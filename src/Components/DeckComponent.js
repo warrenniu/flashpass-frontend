@@ -9,21 +9,11 @@ import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck'
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation'
 import SchoolIcon from '@material-ui/icons/School'
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered'
-import Link from '@material-ui/core/Link'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
+import { Link as RouterLink } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 
 function DeckComponent(props) {
-
-	const useStyles = makeStyles((theme) => ({
-		root: {
-			'& > * + *': {
-				marginLeft: theme.spacing(2),
-			},
-		},
-	}))
-	
-	const classes = useStyles()
 	
 	const arrayOfCards = () => {
 		const sortedCards = props.deckObj.cards.sort((a, b) => parseFloat(a.id) - parseFloat(b.id))
@@ -44,17 +34,13 @@ function DeckComponent(props) {
 			}}>
 
 			{props.deckObj.cards[0] ?
-				<Typography className={classes.root}>
-					<Link style={{'fontSize': '24px'}} href={`/decks/${props.deckObj.id}/cards/${props.deckObj.cards[0].id}`} >
-						{props.deckObj.title}
-					</Link>
-				</Typography>
+				<Button style={{ 'fontSize': '24px' }} color="primary" component={RouterLink} to={`/decks/${props.deckObj.id}/cards/${props.deckObj.cards[0].id}`} >
+					<DoubleArrowIcon color="primary" fontSize="small" />{props.deckObj.title}
+				</Button>
 				:
-				<Typography className={classes.root}>
-					<Link style={{'fontSize': '24px'}} href={`/decks/${props.deckObj.id}/cards`} >
-						{props.deckObj.title}
-					</Link>
-				</Typography>
+				<Button style={{ 'fontSize': '24px' }} color="primary" component={RouterLink} to={`/decks/${props.deckObj.id}/cards`} >
+					<DoubleArrowIcon color="primary" fontSize="small" />{props.deckObj.title}
+				</Button>
 			}
 
 			<h3><SchoolIcon color="primary" fontSize="small" /> <u>Subject</u>: {props.deckObj.subject}</h3>
