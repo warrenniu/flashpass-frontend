@@ -9,20 +9,35 @@ import './index.css';
 import App from './App';
 import 'fontsource-roboto';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import { ThemeProvider } from '@material-ui/styles';
-// import { createMuiTheme } from '@material-ui/core/styles';
-// import { purple } from '@material-ui/core/colors';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
-
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#33a472',
+      main: '#008E4F',
+      dark: '#006337',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ffff5f',
+      main: '#fffb18',
+      dark: '#c8c800',
+      contrastText: '#000',
+    },
+  },
+})
 
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
     <Router>
 		  <Provider store={store}>
-    	  <App />
+				<MuiThemeProvider theme={theme}>
+					<App />
+				</MuiThemeProvider>
 		  </Provider>
     </Router>
   </React.StrictMode>,

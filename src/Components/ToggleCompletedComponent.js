@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {patchDeckCompleted} from '../Redux/actions'
 import Button from '@material-ui/core/Button'
 
+
 function ToggleCompletedComponent(props) {
 
 	const clickHandler = () => {
@@ -10,11 +11,19 @@ function ToggleCompletedComponent(props) {
 		props.patchDeckCompleted(props.currentDeck)
 	}
 
-	return (
-		<Button variant="contained" color="primary" onClick={() => clickHandler()}>
-			{props.decks.find(deck => deck.id === props.currentDeck.id).completed ? "Mark Incomplete" : "Mark Completed"}
-		</Button>
-	)
+	if (props.decks.find(deck => deck.id === props.currentDeck.id).completed) {
+		return (
+			<Button variant="contained" color="primary" onClick={() => clickHandler()}>
+				Mark Incomplete
+			</Button>
+		)
+	} else {
+		return (
+			<Button variant="contained" color="secondary" onClick={() => clickHandler()}>
+				Mark Completed
+			</Button>
+		)
+	}
 }
 
 function msp(state) {

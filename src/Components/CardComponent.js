@@ -29,12 +29,33 @@ class CardComponent extends React.Component {
 					flipOnClick={true}
 					flipDirection="horizontal"
 					ref={(r) => this.flippy = r}
-					style={{ width: '400px', height: '200px' }}
+					style={{
+						width: '500px', 
+						height: '300px' 
+					}}
 				>
-					<FrontSide style={{backgroundColor: '#3399ff', color: 'white'}}>
+					<FrontSide style={{
+							'backgroundColor': '#FFFB18',
+							'border': "1px solid black",
+							'border-radius': '3%',
+							'box-shadow': `5px 5px 5px 2px grey`,
+							'color': '#000000',
+							'font-size': '24px',
+							'text-align': 'center'
+						}}>
+						<h3>QUESTION</h3>
 						{this.props.cardObj.question}
 					</FrontSide>
-					<BackSide style={{ backgroundColor: '#ffff00'}}>
+					<BackSide style={{
+							'backgroundColor': '#FFFB18',
+							'border': "1px solid black",
+							'box-shadow': `5px 5px 5px 2px grey`,
+							'border-radius': '3%',
+							'color': '#000000',
+							'font-size': '24px',
+							'text-align': 'center'
+						}}>
+						<h3>ANSWER</h3>
 						{this.props.cardObj.answer}
 					</BackSide>
 				</Flippy>
