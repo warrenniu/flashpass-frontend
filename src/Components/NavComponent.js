@@ -14,29 +14,32 @@ class NavComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<Button color="primary" component={RouterLink} to="/">
-					Home
-				</Button>
+				{this.props.user ?
+					<div>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/">
+							Home
+						</Button>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/decks/create">
+							Create FlashDeck
+						</Button>
 
-				<Button color="primary" component={RouterLink} to="/decks/create">
-					Create FlashDeck
-				</Button>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/decks">
+							My FlashDecks
+						</Button>
 
-				<Button color="primary" component={RouterLink} to="/decks">
-					My FlashDecks
-				</Button>
-
-				{this.props.user ? 
-					<Button color="primary" component={RouterLink} to="/login" onClick={() => this.logOutHandler()}>Log Out</Button>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/login" onClick={() => this.logOutHandler()}>Log Out</Button>
+					</div>
 					:
-					<Button color="primary" component={RouterLink} to="/login">Log In</Button>
+					<div>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/">
+							Home
+						</Button>
+						
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/login">Log In</Button>
+					
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/signup">Sign Up</Button>
+					</div>
 				}
-
-				{this.props.user ? 
-					""
-					:
-					<Button color="primary" component={RouterLink} to="/signup">Sign Up</Button>
-				}		
 			</div>
 		)
 	}

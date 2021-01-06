@@ -34,7 +34,7 @@ class App extends React.Component {
 				<div className="div1">
 					<img src="/logo.png" alt="logo" />
 				</div>
-				<div className="div2">
+				<div className="div2" style={{'textAlign': 'center'}}>
 					<NavComponent />
 				</div>
 				<div className="div3">
@@ -44,9 +44,9 @@ class App extends React.Component {
 						<Route path="/" component={DeckContainer} />
 					</Switch>
 				</div>
-				<div className="div4">
-					<p>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum</p>
-					<img src="/github.png" alt="github" />
+				<div className="div4" style={{'textAlign': 'center'}}>
+					<p style={{'color': '#008E4F'}}>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum Project</p>
+					<a href="https://github.com/rtetelbaum/flashpass-frontend" target="_blank" rel="noreferrer"><img src="/github.png" alt="github" /></a>
 				</div>
 			</div>
 		);

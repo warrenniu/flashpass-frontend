@@ -13,13 +13,13 @@ function ToggleCompletedComponent(props) {
 
 	if (props.decks.find(deck => deck.id === props.currentDeck.id).completed) {
 		return (
-			<Button variant="contained" color="primary" onClick={() => clickHandler()}>
+			<Button style={{'marginRight': '5px'}}variant="contained" color="primary" onClick={() => clickHandler()}>
 				Mark Incomplete
 			</Button>
 		)
 	} else {
 		return (
-			<Button variant="contained" color="secondary" onClick={() => clickHandler()}>
+			<Button style={{'marginRight': '10px'}} variant="contained" color="secondary" onClick={() => clickHandler()}>
 				Mark Completed
 			</Button>
 		)

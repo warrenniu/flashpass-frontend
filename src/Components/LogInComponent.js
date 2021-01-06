@@ -25,16 +25,24 @@ class LogInComponent extends React.Component {
 
 	render () {
 		return (
-			<>
-				<h3>Log In</h3>
+			<div style={{
+				'border': '1px solid black',
+				'borderRadius': '3%',
+				'boxShadow': `5px 5px 5px 2px grey`,
+				'width': '250px',
+				'margin': '15px',
+				'padding': '15px',
+				'textAlign': 'center' 
+				}}>
+				<h3 style={{'color': '#008E4F'}}>Log In</h3>
 				<form onSubmit={this.submitHandler}>
-					<Input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
-					<Input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} />
+					<Input style={{'marginBottom': '10px'}} type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} /><br />
+					<Input style={{'marginBottom': '10px'}} type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} /><br />
 					<Button variant="contained" color="primary" type="submit">
 						Log In
 					</Button>
 				</form>
-			</>
+			</div>
 		)
 	}
 }
