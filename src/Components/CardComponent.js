@@ -38,8 +38,6 @@ class CardComponent extends React.Component {
 						{this.props.cardObj.answer}
 					</BackSide>
 				</Flippy>
-
-				{this.state.clicked ? <p onClick={this.clickHandler}>A: {this.props.cardObj.answer}</p> : <p onClick={this.clickHandler}>Q: {this.props.cardObj.question}</p> }
 				
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${previousCardId}`}>
 					{sortedCards.lastIndexOf(this.props.cardObj) > 0 ? 
