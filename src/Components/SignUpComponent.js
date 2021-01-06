@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {postUser} from '../Redux/actions'
 import {withRouter} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
-import InputLabel from '@material-ui/core/InputLabel'
 import Input from '@material-ui/core/Input'
 
 class SignUpComponent extends React.Component {
