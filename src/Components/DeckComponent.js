@@ -5,6 +5,10 @@ import CreateCardComponent from './CreateCardComponent'
 import DeleteDeckComponent from './DeleteDeckComponent'
 import ToggleCompletedComponent from './ToggleCompletedComponent'
 import {connect} from 'react-redux'
+import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck'
+import CancelPresentationIcon from '@material-ui/icons/CancelPresentation'
+import SchoolIcon from '@material-ui/icons/School'
+import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered'
 
 function DeckComponent(props) {
 	
@@ -24,8 +28,8 @@ function DeckComponent(props) {
 					<h3>{props.deckObj.title}</h3>
 				</NavLink>
 			}
-			<p>{props.deckObj.subject}</p>
-			<p>{props.deckObj.completed ? "Completed" : "Not Completed"}</p>
+			<h3><SchoolIcon color="primary" fontSize="small" /> {props.deckObj.subject}</h3>
+			<h3><LibraryAddCheckIcon color="primary" fontSize="small" padding-bottom="0px" />{props.deckObj.completed ? " Completed" : " Not Completed"}</h3>
 			<p>Card Count: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</p>
 			<ToggleCompletedComponent currentDeck={props.deckObj} />
 			<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
