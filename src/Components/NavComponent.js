@@ -1,7 +1,8 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {removeUser} from '../Redux/actions'
+import React from 'react'
+import { connect } from 'react-redux'
+import { removeUser } from '../Redux/actions'
+import { Link as RouterLink } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 
 class NavComponent extends React.Component {
 
@@ -12,37 +13,31 @@ class NavComponent extends React.Component {
 		
 	render() {
 		return (
-			<ul>
-				<NavLink 
-				to="/"
-				>
-				<li>Home</li>
-				</NavLink>
+			<div>
+				<Button color="primary" component={RouterLink} to="/">
+					Home
+				</Button>
 
-				<NavLink 
-				to="/decks/create"
-				>
-				{this.props.user ? <li>Create Deck</li> : ""}
-				</NavLink>
+				<Button color="primary" component={RouterLink} to="/decks/create">
+					Create FlashDeck
+				</Button>
 
-				<NavLink 
-				to="/decks"
-				>
-				{this.props.user ? <li>My Decks</li> : ""}
-				</NavLink>
+				<Button color="primary" component={RouterLink} to="/decks">
+					My FlashDecks
+				</Button>
 
-				<NavLink 
-				to="/login"
-				>
-				{this.props.user ? <li onClick={() => this.logOutHandler()}>Log Out</li> : <li>Log In</li>}
-				</NavLink>
-				
-				<NavLink 
-				to="/signup"
-				>
-				{this.props.user ? "" : <li>Sign Up</li>}
-				</NavLink>
-			</ul>
+				{this.props.user ? 
+					<Button color="primary" component={RouterLink} to="/login" onClick={() => this.logOutHandler()}>Log Out</Button>
+					:
+					<Button color="primary" component={RouterLink} to="/login">Log In</Button>
+				}
+
+				{this.props.user ? 
+					""
+					:
+					<Button color="primary" component={RouterLink} to="/signup">Sign Up</Button>
+				}		
+			</div>
 		)
 	}
 }
