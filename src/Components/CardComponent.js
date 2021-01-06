@@ -3,6 +3,7 @@ import EditCardComponent from './EditCardComponent'
 import {Route, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import DeleteCardComponent from './DeleteCardComponent'
+import Button from '@material-ui/core/Button'
 
 class CardComponent extends React.Component {
 
@@ -22,21 +23,34 @@ class CardComponent extends React.Component {
 		let previousCardId = sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1] ? sortedCards[sortedCards.lastIndexOf(this.props.cardObj) - 1].id : null
 		return (
 			<div>
-				<h1>Card Component</h1>
 				{this.state.clicked ? <p onClick={this.clickHandler}>A: {this.props.cardObj.answer}</p> : <p onClick={this.clickHandler}>Q: {this.props.cardObj.question}</p> }
 				
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${previousCardId}`}>
-					{sortedCards.lastIndexOf(this.props.cardObj) > 0 ? <button>Previous</button> : null}
+					{sortedCards.lastIndexOf(this.props.cardObj) > 0 ? 
+						<Button variant="contained" color="primary">
+							Previous
+						</Button>
+						:
+						null
+					}
 				</NavLink>
 
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${nextCardId}`}>
-					{sortedCards.lastIndexOf(this.props.cardObj) + 1 < sortedCards.length ? <button>Next</button> : null}
+					{sortedCards.lastIndexOf(this.props.cardObj) + 1 < sortedCards.length ? 
+						<Button variant="contained" color="primary">
+							Next
+						</Button> 
+						: 
+						null
+					}
 				</NavLink>
 
 				<DeleteCardComponent currentCard={this.props.cardObj} />
 				
 				<NavLink to={`/decks/${this.props.cardObj.deck_id}/cards/${this.props.cardObj.id}/edit`}>
-					<button>Edit Card</button>
+					<Button variant="contained" color="primary">
+						Edit Card
+					</Button>
 				</NavLink>
 
 				<Route path="/decks/:id/cards/:id/edit" render={() => <EditCardComponent currentCard={this.props.cardObj} />} />

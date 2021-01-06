@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {postCard} from '../Redux/actions'
 import {withRouter} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
 
 class CreateCardComponent extends React.Component {
 
@@ -26,13 +28,13 @@ class CreateCardComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Create Card Component</h1>
+				<h3>Create FlashCard</h3>
 				<form onSubmit={this.formSubmitHandler}>
-					<label htmlFor="Card Question">Question: </label>
-					<input type="text" placeholder="Question" name="question" value={this.state.question} onChange={this.inputChangeHandler} />
-					<label htmlFor="Card Answer">Answer: </label>
-					<input type="text" placeholder="Answer" name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />
-					<button>Add Card</button>	
+					<Input type="text" placeholder="Question" name="question" value={this.state.question} onChange={this.inputChangeHandler} />
+					<Input type="text" placeholder="Answer" name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />
+					<Button variant="contained" color="primary" type="submit">
+						Add Card
+					</Button>	
 				</form>
 			</div>
 		)

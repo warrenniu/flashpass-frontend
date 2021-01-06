@@ -15,7 +15,6 @@ function DeckComponent(props) {
 
 	return (
 		<div>
-			<h1>Deck Component</h1>
 			{props.deckObj.cards[0] ? 
 				<NavLink to={`/decks/${props.deckObj.id}/cards/${props.deckObj.cards[0].id}`}>
 					<h3>{props.deckObj.title}</h3>

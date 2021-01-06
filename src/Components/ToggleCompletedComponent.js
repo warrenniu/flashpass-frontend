@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {patchDeckCompleted} from '../Redux/actions'
+import Button from '@material-ui/core/Button'
 
 function ToggleCompletedComponent(props) {
 
@@ -10,7 +11,9 @@ function ToggleCompletedComponent(props) {
 	}
 
 	return (
-		<button onClick={() => clickHandler()}>{props.decks.find(deck => deck.id === props.currentDeck.id).completed ? "Mark Incomplete" : "Mark Completed"}</button>
+		<Button variant="contained" color="primary" onClick={() => clickHandler()}>
+			{props.decks.find(deck => deck.id === props.currentDeck.id).completed ? "Mark Incomplete" : "Mark Completed"}
+		</Button>
 	)
 }
 

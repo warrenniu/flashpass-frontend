@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { deleteCard } from '../Redux/actions'
 import {withRouter} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 
 function DeleteCardComponent(props) {
 
@@ -14,7 +15,9 @@ function DeleteCardComponent(props) {
 	}
 
 	return (
-		<button onClick={() => clickHandler()}>Delete Card</button>
+		<Button variant="contained" color="primary" onClick={() => clickHandler()}>
+			Delete Card
+		</Button>
 	)
 }
 

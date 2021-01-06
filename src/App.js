@@ -31,20 +31,23 @@ class App extends React.Component {
 	render () {
 		return (
 			<div className="parent">
-				<div className="div1">Title Div</div>
+				<div className="div1">
+					<img src="/logo.png" alt="logo" />
+				</div>
 				<div className="div2">
-					NavBar Div
 					<NavComponent />
 				</div>
 				<div className="div3">
-					Main Div
 					<Switch>
 						<Route path="/login" component={LogInComponent} />
 						<Route path="/signup" component={SignUpComponent} />
 						<Route path="/" component={DeckContainer} />
 					</Switch>
 				</div>
-				<div className="div4">Footer Div</div>
+				<div className="div4">
+					<p>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum</p>
+					<img src="/github.png" alt="github" />
+				</div>
 			</div>
 		);
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {patchCard} from '../Redux/actions'
 import {withRouter} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
 
 class EditCardComponent extends React.Component {
 
@@ -26,13 +28,13 @@ class EditCardComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Edit Card Component</h1>
+				<h3>Edit FlashCard</h3>
 				<form onSubmit={this.formSubmitHandler}>
-					<label htmlFor="Card Question">Question: </label>
-					<input type="text" placeholder={this.state.question} name="question" value={this.state.question} onChange={this.inputChangeHandler} />
-					<label htmlFor="Card Answer">Answer: </label>
-					<input type="text" placeholder={this.state.answer} name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />
-					<button>Edit Card</button>
+					<Input type="text" placeholder={this.state.question} name="question" value={this.state.question} onChange={this.inputChangeHandler} />
+					<Input type="text" placeholder={this.state.answer} name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />
+					<Button variant="contained" color="primary" type="submit">
+						Edit Card
+					</Button>
 				</form>
 				
 			</div>

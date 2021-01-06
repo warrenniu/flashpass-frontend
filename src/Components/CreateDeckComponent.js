@@ -2,7 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {postDeck} from '../Redux/actions'
-
+import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
 
 class CreateDeckComponent extends React.Component {
 
@@ -27,13 +28,13 @@ class CreateDeckComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Create Deck Component</h1>
+				<h3>Create FlashDeck</h3>
 				<form onSubmit={this.formSubmitHandler}>
-					<label htmlFor="Deck Title">Deck Title: </label>
-					<input type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} />
-					<label htmlFor="Deck Subject">Deck Subject: </label>
-					<input type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} />
-					<button>Add Deck</button>
+					<Input type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} />
+					<Input type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} />
+					<Button variant="contained" color="primary" type="submit">
+						Add Deck
+					</Button>
 				</form>
 			</div>
 		)
