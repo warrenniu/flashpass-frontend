@@ -18,26 +18,33 @@ class NavComponent extends React.Component {
 					<div>
 						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/">
 							Home
-						</Button>
+						</Button><br />
+
 						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/decks/create">
 							Create FlashDeck
-						</Button>
+						</Button><br />
 
 						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/decks">
 							My FlashDecks
-						</Button>
+						</Button><br />
 
-						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/login" onClick={() => this.logOutHandler()}>Log Out</Button>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/login" onClick={() => this.logOutHandler()}>
+							Log Out
+						</Button>
 					</div>
 					:
 					<div>
 						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/">
 							Home
-						</Button>
+						</Button><br />
 						
-						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/login">Log In</Button>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/login">
+							Log In
+						</Button><br />
 					
-						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/signup">Sign Up</Button>
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/signup">
+							Sign Up
+						</Button>
 					</div>
 				}
 			</div>

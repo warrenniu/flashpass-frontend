@@ -19,11 +19,11 @@ class DeckContainer extends React.Component {
 
 	render () {
 		return (
-			<div>
+			<div id="deckContainer">
 				{this.props.user !== null ?
-					<h3 style={{'color': '#008E4F','textAlign': 'center'}}>Welcome {this.props.user.first_name}!</h3>
+					<h1 style={{'color': '#008E4F'}}>Welcome {this.props.user.first_name}!</h1>
 					: 
-					<h1 style={{'color': '#008E4F','textAlign': 'center'}}>Please log in or sign up!</h1>
+					<h1 style={{'color': '#008E4F'}}>Please log in or sign up!</h1>
 				}
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />
@@ -37,13 +37,13 @@ class DeckContainer extends React.Component {
 							</>
 							)
 							: 
-							<h3 style={{'color': '#008E4F','textAlign': 'center'}}>Loading...</h3>
+							<h3 style={{'color': '#008E4F'}}>Loading...</h3>
 					}} />
 					{this.props.user === null ? null :
 						<Route path="/decks" render={() => 
 							this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id).length === 0 || this.props.user === null
 							?
-							<p style={{'color': '#008E4F','textAlign': 'center'}}>No Decks to Load</p>
+							<p style={{'color': '#008E4F'}}>Please create a deck.</p>
 							:
 							this.arrayOfDecks()}
 						/>
