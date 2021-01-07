@@ -16,7 +16,7 @@ class NavComponent extends React.Component {
 			<div>
 				{this.props.user ?
 					<div>
-						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/">
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/home">
 							Home
 						</Button><br />
 
@@ -34,7 +34,7 @@ class NavComponent extends React.Component {
 					</div>
 					:
 					<div>
-						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/">
+						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/home">
 							Home
 						</Button><br />
 						

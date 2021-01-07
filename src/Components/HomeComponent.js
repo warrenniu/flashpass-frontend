@@ -1,10 +1,18 @@
 import React from 'react'
 import Flippy, { FrontSide, BackSide } from 'react-flippy'
+import {connect} from 'react-redux'
 
 class HomeComponent extends React.Component {
 	render() {
 		return (
 			<div className="roll-in-left">
+
+				{this.props.user !== null ?
+					<h1 style={{'color': '#008E4F'}}>Welcome {this.props.user.first_name}!</h1>
+					: 
+					null
+				}
+
 				<Flippy
 					flipOnHover={false}
 					flipOnClick={true}
@@ -49,4 +57,10 @@ class HomeComponent extends React.Component {
 	}
 }
 
-export default HomeComponent
+function msp(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(msp)(HomeComponent)

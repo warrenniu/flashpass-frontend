@@ -23,6 +23,8 @@ grid-row-gap: 0px;
 	align-items: center;
 	justify-content: center;
 	background-color: lightyellow;
+	overflow-x: scroll;
+	overflow-y: scroll;
 }
 
 .div4 {
@@ -53,7 +55,11 @@ grid-row-gap: 0px;
 
  .roll-in-left {
 	-webkit-animation: roll-in-left 2.0s ease-out both;
-	        animation: roll-in-left 2.0s ease-out both;
+					animation: roll-in-left 2.0s ease-out both;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 @-webkit-keyframes roll-in-left {

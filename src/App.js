@@ -23,9 +23,10 @@ class App extends React.Component {
 				.then(resp => resp.json())
 				.then(data => {
 					this.props.getUser(data)
+					this.props.history.push('/home')
 				})
 			} else {
-				this.props.history.push('/')
+				this.props.history.push('/home')
 			}
 		}
 
