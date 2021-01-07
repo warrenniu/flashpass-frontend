@@ -8,7 +8,7 @@ class HomeComponent extends React.Component {
 			<div className="roll-in-left">
 
 				{this.props.user !== null ?
-					<h1 style={{'color': '#008E4F'}}>Welcome {this.props.user.first_name}!</h1>
+					<h1 style={{'color': '#FFF'}}>Welcome {this.props.user.first_name}!</h1>
 					: 
 					null
 				}
@@ -24,11 +24,11 @@ class HomeComponent extends React.Component {
 					}}
 				>
 					<FrontSide style={{
-						'backgroundColor': '#FFFB18',
-						'border': "1px solid black",
+						'backgroundColor': 'rgba(211,211,211, .5)',
+						'border': "2px solid white",
 						'borderRadius': '3%',
-						'boxShadow': `5px 5px 5px 2px grey`,
-						'color': '#000000',
+						'boxShadow': `5px 5px 5px 2px lightgrey`,
+						'color': 'white',
 						'fontSize': '24px',
 						'textAlign': 'center'
 					}}>
@@ -36,11 +36,11 @@ class HomeComponent extends React.Component {
 						<p>Your resource for study flash cards. Click me to find out more! </p>
 					</FrontSide>
 					<BackSide style={{
-						'backgroundColor': '#FFFB18',
-						'border': "1px solid black",
-						'boxShadow': `5px 5px 5px 2px grey`,
+						'backgroundColor': 'rgba(211,211,211, .5)',
+						'border': "2px solid white",
+						'boxShadow': `5px 5px 5px 2px lightgrey`,
 						'borderRadius': '3%',
-						'color': '#000000',
+						'color': 'white',
 						'fontSize': '24px'
 					}}>
 						<h3 style={{textAlign: 'center'}}>Instructions</h3>

@@ -29,7 +29,7 @@ class CreateCardComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3 style={{'color': '#008E4F'}}><CreateIcon color="primary" fontSize="small" />Create FlashCard</h3>
+				<h3 style={{'color': '#FFF'}}><CreateIcon color="primary" fontSize="small" />Create FlashCard</h3>
 				<form style={{'marginBottom': '15px'}} onSubmit={this.formSubmitHandler}>
 					<Input style={{'marginRight': '15px'}} type="text" placeholder="Question" name="question" value={this.state.question} onChange={this.inputChangeHandler} />
 					<Input style={{'marginRight': '15px'}} type="text" placeholder="Answer" name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />

@@ -21,9 +21,9 @@ class DeckContainer extends React.Component {
 		return (
 			<div id="deckContainer">
 				{this.props.user !== null ?
-					<h1 style={{'color': '#008E4F'}}>Welcome {this.props.user.first_name}!</h1>
+					<h1 style={{'color': '#FFF'}}>Welcome {this.props.user.first_name}!</h1>
 					: 
-					<h1 style={{'color': '#008E4F'}}>Please log in or sign up!</h1>
+					<h1 style={{'color': '#FFF'}}>Loading...</h1>
 				}
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />

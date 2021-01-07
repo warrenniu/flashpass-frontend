@@ -32,9 +32,9 @@ class App extends React.Component {
 
 	render () {
 		return (
-			<div className="parent">
+			<div className="parent background">
 				<div className="div1">
-					<img src="/logo.png" alt="logo" />
+					<img src="/logo-white-reenie-beanie.png" alt="logo" />
 				</div>
 				<div className="div2">
 					<NavComponent />
@@ -48,7 +48,7 @@ class App extends React.Component {
 					</Switch>
 				</div>
 				<div className="div4">
-					<p style={{'color': '#008E4F'}}>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum Project</p>
+					<p style={{'color': 'white', 'font-size': '16px'}}>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum Project</p>
 					<a href="https://github.com/rtetelbaum/flashpass-frontend" target="_blank" rel="noreferrer"><img src="/github.png" alt="github" /></a>
 				</div>
 			</div>

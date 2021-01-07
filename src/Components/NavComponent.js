@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { removeUser } from '../Redux/actions'
 import { Link as RouterLink } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import "@fontsource/reenie-beanie"
 
 class NavComponent extends React.Component {
 
@@ -13,7 +14,7 @@ class NavComponent extends React.Component {
 		
 	render() {
 		return (
-			<div>
+			<div id="navComponent">
 				{this.props.user ?
 					<div>
 						<Button style={{'fontSize': '20px'}} color="primary" component={RouterLink} to="/home">

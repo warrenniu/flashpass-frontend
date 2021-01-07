@@ -22,15 +22,13 @@ function DeckComponent(props) {
 
 	return (
 		<div style={{
-			'border': '1px solid black',
+			'border': '2px solid white',
 			'borderRadius': '3%',
-			'boxShadow': `5px 5px 5px 2px grey`,
+			'boxShadow': `5px 5px 5px 2px lightgrey`,
 			'width': '535px',
-			'marginBottom': '15px',
+			'marginBottom': '25px',
 			'padding': '15px',
-			'textAlign': 'center',
-			'marginLeft': 'auto',
-			'marginRight': 'auto'
+			'textAlign': 'center'
 			}}>
 
 			{props.deckObj.cards[0] ?
@@ -43,15 +41,15 @@ function DeckComponent(props) {
 				</Button>
 			}
 
-			<h3><SchoolIcon color="primary" fontSize="small" /> <u>Subject</u>: {props.deckObj.subject}</h3>
+			<h3 className="deckStats"><SchoolIcon color="primary" fontSize="small" /> <u>Subject</u>: {props.deckObj.subject}</h3>
 
 			{props.deckObj.completed ?
-				<h3><LibraryAddCheckIcon color="primary" fontSize="small" /> <u>Status</u>: Completed</h3>
+				<h3 className="deckStats"><LibraryAddCheckIcon color="primary" fontSize="small" /> <u>Status</u>: Completed</h3>
 				:
-				<h3><CancelPresentationIcon color="primary" fontSize="small" /> <u>Status</u>: Not Completed</h3>
+				<h3 className="deckStats"><CancelPresentationIcon color="primary" fontSize="small" /> <u>Status</u>: Not Completed</h3>
 			}
 			
-			<h3><FormatListNumberedIcon color="primary" fontSize="small" /> <u>Card Count</u>: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</h3>
+			<h3 className="deckStats"><FormatListNumberedIcon color="primary" fontSize="small" /> <u>Card Count</u>: {props.decks.find(deck => deck.id === props.deckObj.id).cards.length}</h3>
 			<ToggleCompletedComponent currentDeck={props.deckObj} />
 			<DeleteDeckComponent currentDeckId={props.deckObj.id} /> 
 			{window.location.pathname === "/decks" ? null : <CreateCardComponent currentDeckId={props.deckObj.id} />}

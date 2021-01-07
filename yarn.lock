@@ -1205,6 +1205,11 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
+"@fontsource/reenie-beanie@^4.1.0":
+  "integrity" "sha512-8/KYALjfwZe9RtKw7lHv6ArYf6+T7HEL5sRo2dsGFXT8ntQ8ogTK1toRKgIGUmh5FGL07OWoPn564DB/ECKETg=="
+  "resolved" "https://registry.npmjs.org/@fontsource/reenie-beanie/-/reenie-beanie-4.1.0.tgz"
+  "version" "4.1.0"
+
 "@hapi/address@2.x.x":
   "integrity" "sha512-QD1PhQk+s31P1ixsX0H0Suoupp3VMXzIVMSwobR3F3MSUO2YCV0B7xqLcUw/Bh8yuvd3LhpyqLQWTNcRmp6IdQ=="
   "resolved" "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz"

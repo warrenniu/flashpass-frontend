@@ -29,7 +29,7 @@ class EditCardComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3 style={{'color': '#008E4F'}}><CreateIcon color="primary" fontSize="small" />Edit FlashCard</h3>
+				<h3 style={{'color': '#FFF'}}><CreateIcon color="primary" fontSize="small" />Edit FlashCard</h3>
 				<form onSubmit={this.formSubmitHandler}>
 					<Input style={{'marginBottom': '10px', 'width': '400px'}} type="text" placeholder={this.state.question} name="question" value={this.state.question} onChange={this.inputChangeHandler} /><br />
 					<Input style={{'marginBottom': '10px', 'width': '400px'}} type="text" placeholder={this.state.answer} name="answer" value={this.state.answer} onChange={this.inputChangeHandler} /><br />

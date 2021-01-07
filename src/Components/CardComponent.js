@@ -40,11 +40,11 @@ class CardComponent extends React.Component {
 					}}
 				>
 					<FrontSide style={{
-							'backgroundColor': '#FFFB18',
-							'border': "1px solid black",
+							'backgroundColor': 'rgba(211,211,211, .5)',
+							'border': "2px solid white",
 							'borderRadius': '3%',
-							'boxShadow': `5px 5px 5px 2px grey`,
-							'color': '#000000',
+							'boxShadow': `5px 5px 5px 2px lightgrey`,
+							'color': 'white',
 							'fontSize': '24px',
 							'textAlign': 'center'
 						}}>
@@ -52,11 +52,11 @@ class CardComponent extends React.Component {
 						{this.props.cardObj.question}
 					</FrontSide>
 					<BackSide style={{
-							'backgroundColor': '#FFFB18',
-							'border': "1px solid black",
-							'boxShadow': `5px 5px 5px 2px grey`,
+							'backgroundColor': 'rgba(211,211,211, .5)',
+							'border': "2px solid white",
+							'boxShadow': `5px 5px 5px 2px lightgrey`,
 							'borderRadius': '3%',
-							'color': '#000000',
+							'color': 'white',
 							'fontSize': '24px',
 							'textAlign': 'center'
 						}}>

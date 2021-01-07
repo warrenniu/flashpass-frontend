@@ -19,7 +19,7 @@ function ToggleCompletedComponent(props) {
 		)
 	} else {
 		return (
-			<Button style={{'marginRight': '10px'}} variant="contained" color="secondary" onClick={() => clickHandler()}>
+			<Button style={{'marginRight': '10px'}} variant="contained" color="primary" onClick={() => clickHandler()}>
 				Mark Completed
 			</Button>
 		)
