@@ -5,6 +5,7 @@ import NavComponent from './Components/NavComponent'
 import DeckContainer from './Containers/DeckContainer'
 import LogInComponent from './Components/LogInComponent'
 import SignUpComponent from './Components/SignUpComponent'
+import HomeComponent from './Components/HomeComponent'
 import {connect} from 'react-redux'
 import {getUser} from './Redux/actions'
 
@@ -41,6 +42,7 @@ class App extends React.Component {
 					<Switch>
 						<Route path="/login" component={LogInComponent} />
 						<Route path="/signup" component={SignUpComponent} />
+						<Route path="/home" component={HomeComponent} />
 						<Route path="/" component={DeckContainer} />
 					</Switch>
 				</div>
