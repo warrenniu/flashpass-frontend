@@ -21,8 +21,6 @@ class DeckContainer extends React.Component {
 	render () {
 		return (
 			<div id="deckContainer">
-				
-				{this.welcomeMessage()}
 
 				{this.props.user !== null ?
 					<h1 style={{'color': '#FFF', 'fontFamily': 'Reenie Beanie', 'fontSize': '48px'}}>Welcome {this.props.user.first_name}!</h1>
