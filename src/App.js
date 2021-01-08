@@ -11,7 +11,7 @@ import {getUser} from './Redux/actions'
 
 class App extends React.Component {
 
-	BASE_URL = "http://flashp.herokuapp.com"
+	BASE_URL = "http://localhost:4000"
 
 	componentDidMount() {
 		const token = localStorage.getItem("token")

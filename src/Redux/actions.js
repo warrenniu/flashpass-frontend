@@ -12,7 +12,7 @@ import {
 	GET_DECKS
 	} from './actionTypes';
 
-const BASE_URL = "http://flashp.herokuapp.com"
+const BASE_URL = "http://localhost:4000"
 
 export function getUser(currentUser) {
 	return function (dispatch) {
