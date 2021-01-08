@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {postDeck} from '../Redux/actions'
 import Button from '@material-ui/core/Button'
-import Input from '@material-ui/core/Input'
 
 class CreateDeckComponent extends React.Component {
 
@@ -40,8 +39,8 @@ class CreateDeckComponent extends React.Component {
 				}}>
 				<h3 style={{'color': '#FFF'}}>Create FlashDeck</h3>
 				<form onSubmit={this.formSubmitHandler}>
-					<Input style={{'marginBottom': '10px'}} type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} /><br />
-					<Input style={{'marginBottom': '10px'}} type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} /><br />
+					<input className='inputOverride' style={{'marginBottom': '10px'}} type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} /><br />
+					<input className='inputOverride' style={{'marginBottom': '10px'}} type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} /><br />
 					<Button variant="contained" color="primary" type="submit">
 						Add Deck
 					</Button>

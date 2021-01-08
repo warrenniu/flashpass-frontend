@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {postLogin} from '../Redux/actions'
 import {withRouter} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
-import Input from '@material-ui/core/Input'
 
 class LogInComponent extends React.Component {
 	state = {
@@ -35,8 +34,8 @@ class LogInComponent extends React.Component {
 				}}>
 				<h3 style={{'color': 'white'}}>Log In</h3>
 				<form onSubmit={this.submitHandler}>
-					<Input style={{'marginBottom': '10px'}} type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} /><br />
-					<Input style={{'marginBottom': '10px'}} type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} /><br />
+					<input className='inputOverride' style={{'marginBottom': '10px'}} type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} /><br />
+					<input className='inputOverride' style={{'marginBottom': '10px'}} type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} /><br />
 					<Button variant="contained" color="primary" type="submit">
 						Log In
 					</Button>

@@ -4,6 +4,7 @@ import CreateDeckComponent from '../Components/CreateDeckComponent'
 import {Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getDecks} from '../Redux/actions'
+import "@fontsource/reenie-beanie"
 
 class DeckContainer extends React.Component {
 
@@ -21,9 +22,9 @@ class DeckContainer extends React.Component {
 		return (
 			<div id="deckContainer">
 				{this.props.user !== null ?
-					<h1 style={{'color': '#FFF'}}>Welcome {this.props.user.first_name}!</h1>
+					<h1 style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Welcome {this.props.user.first_name}!</h1>
 					: 
-					<h1 style={{'color': '#FFF'}}>Loading...</h1>
+					<h1 style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Loading...</h1>
 				}
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />
@@ -37,13 +38,13 @@ class DeckContainer extends React.Component {
 							</>
 							)
 							: 
-							<h3 style={{'color': '#008E4F'}}>Loading...</h3>
+							<h3 style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Loading...</h3>
 					}} />
 					{this.props.user === null ? null :
 						<Route path="/decks" render={() => 
 							this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id).length === 0 || this.props.user === null
 							?
-							<p style={{'color': '#008E4F'}}>Please create a deck.</p>
+							<p style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Please create a deck.</p>
 							:
 							this.arrayOfDecks()}
 						/>
