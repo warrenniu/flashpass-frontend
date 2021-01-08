@@ -21,11 +21,15 @@ class DeckContainer extends React.Component {
 	render () {
 		return (
 			<div id="deckContainer">
+				
+				{this.welcomeMessage()}
+
 				{this.props.user !== null ?
-					<h1 style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Welcome {this.props.user.first_name}!</h1>
+					<h1 style={{'color': '#FFF', 'fontFamily': 'Reenie Beanie', 'fontSize': '48px'}}>Welcome {this.props.user.first_name}!</h1>
 					: 
-					<h1 style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Loading...</h1>
+					<h1 style={{'color': '#FFF', 'fontFamily': 'Reenie Beanie', 'fontSize': '48px'}}>Loading...</h1>
 				}
+
 				<Switch>
 					<Route path="/decks/create" component={CreateDeckComponent} />
 					<Route path="/decks/:id" render={routerProps => {
@@ -37,14 +41,14 @@ class DeckContainer extends React.Component {
 								<DeckComponent deckObj={foundDeck} />
 							</>
 							)
-							: 
-							<h3 style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Loading...</h3>
+							:
+							null
 					}} />
 					{this.props.user === null ? null :
 						<Route path="/decks" render={() => 
 							this.props.decks.filter(deckEl => deckEl.user_id === this.props.user.id).length === 0 || this.props.user === null
 							?
-							<p style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Please create a deck.</p>
+							<p style={{'color': '#FFF', 'fontFamily': 'Reenie Beanie', 'fontSize': '48px'}}>Please create a deck.</p>
 							:
 							this.arrayOfDecks()}
 						/>

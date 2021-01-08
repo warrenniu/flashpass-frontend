@@ -48,7 +48,7 @@ class App extends React.Component {
 					</Switch>
 				</div>
 				<div className="div4">
-					<p style={{'color': 'white', 'font-size': '16px'}}>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum Project</p>
+					<p style={{'color': 'white', 'fontSize': '16px'}}>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum Project</p>
 					<a href="https://github.com/rtetelbaum/flashpass-frontend" target="_blank" rel="noreferrer"><img src="/github.png" alt="github" /></a>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ class HomeComponent extends React.Component {
 			<div className="roll-in-left">
 
 				{this.props.user !== null ?
-					<h1 style={{'color': '#FFF', 'font-family': 'Reenie Beanie', 'font-size': '48px'}}>Welcome {this.props.user.first_name}!</h1>
+					<h1 style={{'color': '#FFF', 'fontFamily': 'Reenie Beanie', 'fontSize': '48px'}}>Welcome {this.props.user.first_name}!</h1>
 					: 
 					null
 				}

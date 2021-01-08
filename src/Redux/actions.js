@@ -57,6 +57,7 @@ export function postLogin(userInfo) {
 			.then(data => {
 				localStorage.setItem("token", data.jwt)
 				dispatch({ type: POST_LOGIN, payload: data})
+				console.log(data)
 			})
 	}
 }

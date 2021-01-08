@@ -12,7 +12,13 @@ function userReducer(prevState = defaultState.user, action) {
 		case "REMOVE_USER":
 			return null
 		case "POST_LOGIN":
-			return action.payload.user
+			if (action.payload.user) {
+				return action.payload.user
+			} else if (action.payload.message) {
+				return action.payload.message
+			} else {
+				return null
+			}
 		case "POST_USER":
 			return prevState
 		default:
