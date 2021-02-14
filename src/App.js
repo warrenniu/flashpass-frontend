@@ -49,7 +49,7 @@ class App extends React.Component {
 				</div>
 				<div className="div4">
 					<p style={{'color': 'white', 'fontSize': '16px'}}>Copyright 2021 FlashPass: A Warren Niu & Roman Tetelbaum Project</p>
-					<a href="https://github.com/rtetelbaum/flashpass-frontend" target="_blank" rel="noreferrer"><img src="/github.png" alt="github" /></a>
+					<a href="https://github.com/warrenniu/flashpass-frontend" target="_blank" rel="noreferrer"><img src="/github.png" alt="github" /></a>
 				</div>
 			</div>
 		);

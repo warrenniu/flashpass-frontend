@@ -36,7 +36,7 @@ class SignUpComponent extends React.Component {
 				}}>
 			<h3 style={{'color': 'white'}}>Sign Up</h3>
 			<form onSubmit={this.submitHandler}>
-				<input className='inputOverride' style={{'marginBottom': '10px'}} type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} /><br />
+				<input className='inputOverride' style={{'marginBottom': '10px'}} autoComplete="off" type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} /><br />
 				<input className='inputOverride' style={{'marginBottom': '10px'}} type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} /><br />
 				<input className='inputOverride' style={{'marginBottom': '10px'}} type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.changeHandler} /><br />
 				<input className='inputOverride' style={{'marginBottom': '10px'}} type="text" name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.changeHandler} /><br />
