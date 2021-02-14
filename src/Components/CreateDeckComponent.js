@@ -39,8 +39,8 @@ class CreateDeckComponent extends React.Component {
 				}}>
 				<h3 style={{'color': '#FFF'}}>Create FlashDeck</h3>
 				<form onSubmit={this.formSubmitHandler}>
-					<input className='inputOverride' style={{'marginBottom': '10px'}} type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} /><br />
-					<input className='inputOverride' style={{'marginBottom': '10px'}} type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} /><br />
+					<input className='inputOverride' style={{'marginBottom': '10px'}} autoComplete="off" type="text" placeholder="title" name="title" value={this.state.title} onChange={this.inputChangeHandler} /><br />
+					<input className='inputOverride' style={{'marginBottom': '10px'}} autoComplete="off" type="text" placeholder="subject" name="subject" value={this.state.subject}onChange={this.inputChangeHandler} /><br />
 					<Button variant="contained" color="primary" type="submit">
 						Add Deck
 					</Button>

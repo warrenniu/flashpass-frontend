@@ -30,8 +30,8 @@ class CreateCardComponent extends React.Component {
 			<div>
 				<h3 style={{'color': '#FFF'}}><CreateIcon color="primary" fontSize="small" />Create FlashCard</h3>
 				<form style={{'marginBottom': '15px'}} onSubmit={this.formSubmitHandler}>
-					<input className='inputOverride' style={{'marginRight': '15px'}} type="text" placeholder="Question" name="question" value={this.state.question} onChange={this.inputChangeHandler} />
-					<input className='inputOverride' style={{'marginRight': '15px'}} type="text" placeholder="Answer" name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />
+					<input className='inputOverride' style={{'marginRight': '15px'}} autoComplete="off" type="text" placeholder="Question" name="question" value={this.state.question} onChange={this.inputChangeHandler} />
+					<input className='inputOverride' style={{'marginRight': '15px'}} autoComplete="off" type="text" placeholder="Answer" name="answer" value={this.state.answer} onChange={this.inputChangeHandler} />
 					<Button variant="contained" color="primary" type="submit">
 						Add Card
 					</Button>	
